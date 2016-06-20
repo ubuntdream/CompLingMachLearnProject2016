@@ -15,10 +15,12 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     Control/control.cpp \
-    Model/value.cpp
+    Model/value.cpp \
+    Model/dicevalidator.cpp
 
 HEADERS  += mainwindow.h \
     Control/control.h \
-    Model/value.h
+    Model/value.h \
+    Model/dicevalidator.h
 
 FORMS    += mainwindow.ui

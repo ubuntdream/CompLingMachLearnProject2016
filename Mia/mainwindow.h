@@ -20,6 +20,8 @@ public:
 private slots:
     void on_rolldice_clicked();
 
+    void on_callButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     Control mControl;

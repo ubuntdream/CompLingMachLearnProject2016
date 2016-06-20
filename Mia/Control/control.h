@@ -10,10 +10,17 @@ class Control
 {
 private:
     int rollDice();
+    Value mlastValue;
+    Value mRandomValue;
+    Value mNewValue;
+    bool mStartGame;
 public:
     Control();
     ~Control();
-    int getRandomDice();
+    Value getRandomValue();
+    bool isNewGame() const;
+    Value getLastValue() const;
+    bool setCallValue(int v);
 };
 
 #endif // CONTROL_H

@@ -5,6 +5,10 @@
 Control::Control()
 {    
     std::srand(std::time(NULL));
+    mStartGame = true;
+    mNewValue = Value();
+    mRandomValue = Value();
+    mlastValue = Value();
 }
 
 Control::~Control()
@@ -13,29 +17,36 @@ Control::~Control()
 }
 
 // Roll two dice and return the value
-int Control::getRandomDice(){
-    int a = rollDice();
-    int b = rollDice();
-    int ret = std::min(a,b)+(10*std::max(a,b));
-
-    Value v1(1,1);
-    Value v2(1,2);
-    Value v3(2,3);
-
-    std::cout <<std::boolalpha <<v1.equal(v1)<<" "<<std::boolalpha <<v1.less(v1)<<" "<<std::boolalpha <<v1.great(v1)<<" - "
-             <<std::boolalpha <<v1.equal(v2)<<" "<<std::boolalpha <<v1.less(v2)<<" "<<std::boolalpha <<v1.great(v2)<<" - "
-            <<std::boolalpha <<v1.equal(v3)<<" "<<std::boolalpha <<v1.less(v3)<<" "<<std::boolalpha <<v1.great(v3)<<" | "
-           <<std::boolalpha <<v2.equal(v1)<<" "<<std::boolalpha <<v2.less(v1)<<" "<<std::boolalpha <<v2.great(v1)<<" - "
-          <<std::boolalpha <<v2.equal(v2)<<" "<<std::boolalpha <<v2.less(v2)<<" "<<std::boolalpha <<v2.great(v2)<<" - "
-         <<std::boolalpha <<v2.equal(v3)<<" "<<std::boolalpha <<v2.less(v3)<<" "<<std::boolalpha <<v2.great(v3)<<" | "
-        <<std::boolalpha <<v3.equal(v1)<<" "<<std::boolalpha <<v3.less(v1)<<" "<<std::boolalpha <<v3.great(v1)<<" - "
-       <<std::boolalpha <<v3.equal(v2)<<" "<<std::boolalpha <<v3.less(v2)<<" "<<std::boolalpha <<v3.great(v2)<<" - "
-      <<std::boolalpha <<v3.equal(v3)<<" "<<std::boolalpha <<v3.less(v3)<<" "<<std::boolalpha <<v3.great(v3)<<std::endl;
-
-    return ret;
+Value Control::getRandomValue(){
+    mlastValue.set(mNewValue);
+    mRandomValue.set(rollDice(),rollDice());
+    return mRandomValue;
 }
 
 // Roll one dice
 int Control::rollDice(){
     return (rand() % 6) + 1;
+}
+
+// Return True, if a new game starts
+bool Control::isNewGame() const{
+    return mStartGame;
+}
+
+//Return the last Value
+Value Control::getLastValue() const{
+    return mlastValue;
+}
+
+// Set the Vallue witch called
+bool Control::setCallValue(int v){
+    int a = v%10;
+    int b = v/10;
+
+    if(mStartGame || mlastValue.less_tan(a,b) || (mlastValue.mia && mlastValue.equal(a,b))){
+        mNewValue.set(a,b);
+        mStartGame = false;
+        return true;
+    }
+    return false;
 }

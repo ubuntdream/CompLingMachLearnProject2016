@@ -7,6 +7,7 @@ class Value
 {
 public:
     Value(int a, int b);
+    Value();
     ~Value();
 
     int a,b;
@@ -18,11 +19,11 @@ public:
     bool equal(int a, int b);
     bool equal(Value v);
 
-    bool great(int a, int b);
-    bool great(Value v);
+    bool great_tan(int a, int b);
+    bool great_tan(Value v);
 
-    bool less(int a, int b);
-    bool less(Value v);
+    bool less_tan(int a, int b);
+    bool less_tan(Value v);
 
     int toInt();
     QString toQString();
