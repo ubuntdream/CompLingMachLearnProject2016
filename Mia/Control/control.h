@@ -4,6 +4,8 @@
 #include <ctime>
 #include <cstdlib>
 
+#include "Model/value.h"
+
 class Control
 {
 private:
