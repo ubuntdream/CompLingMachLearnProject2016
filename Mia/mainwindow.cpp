@@ -32,7 +32,10 @@ void MainWindow::on_btn_RollDice_clicked()
 
 void MainWindow::on_btn_CallValue_clicked()
 {
-    if(mControl.setCallValue(ui->txfld_CallValueInput->text().toInt())){
+    QString s  = ui->txfld_CallValueInput->text();
+    int val = s.toInt();
+    if(val > 0){
+        mControl.setCallValue(val);
         ui->txfld_CallValueInput->setStyleSheet("QLineEdit { background-color: green}");
         ui->btn_RollDice->setEnabled(true);
         ui->btn_CallValue->setEnabled(false);
