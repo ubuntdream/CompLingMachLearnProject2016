@@ -38,13 +38,13 @@ Value Control::getLastValue() const{
     return mlastValue;
 }
 
-// Set the Vallue witch called
+// Set the Vallue whitch was called
 bool Control::setCallValue(int v){
-    int a = v%10;
-    int b = v/10;
+    int lowval = v%10;
+    int highval = v/10;
 
-    if(mStartGame || mlastValue.less_tan(a,b) || (mlastValue.mia && mlastValue.equal(a,b))){
-        mNewValue.set(a,b);
+    if(mStartGame || mlastValue.less_than(lowval,highval) || (mlastValue.mia && mlastValue.equal(lowval,highval))){
+        mNewValue.set(lowval,highval);
         mStartGame = false;
         return true;
     }
