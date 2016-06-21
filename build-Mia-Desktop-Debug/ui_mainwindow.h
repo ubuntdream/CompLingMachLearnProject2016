@@ -29,11 +29,11 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralWidget;
-    QPushButton *rolldice;
-    QLabel *DiceShow;
-    QLabel *LastValue;
-    QLineEdit *CallLine;
-    QPushButton *callButton;
+    QPushButton *btn_RollDice;
+    QLabel *lbl_ActualDiceValue;
+    QLabel *lbl_FormerDiceValue;
+    QLineEdit *txfld_CallValueInput;
+    QPushButton *btn_CallValue;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -45,29 +45,29 @@ public:
         MainWindow->resize(400, 300);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        rolldice = new QPushButton(centralWidget);
-        rolldice->setObjectName(QStringLiteral("rolldice"));
-        rolldice->setGeometry(QRect(150, 150, 100, 27));
-        DiceShow = new QLabel(centralWidget);
-        DiceShow->setObjectName(QStringLiteral("DiceShow"));
-        DiceShow->setGeometry(QRect(187, 30, 26, 17));
-        DiceShow->setFrameShape(QFrame::Box);
-        DiceShow->setFrameShadow(QFrame::Plain);
-        LastValue = new QLabel(centralWidget);
-        LastValue->setObjectName(QStringLiteral("LastValue"));
-        LastValue->setGeometry(QRect(150, 30, 26, 17));
-        LastValue->setFrameShape(QFrame::Box);
-        LastValue->setFrameShadow(QFrame::Plain);
-        CallLine = new QLineEdit(centralWidget);
-        CallLine->setObjectName(QStringLiteral("CallLine"));
-        CallLine->setGeometry(QRect(220, 30, 31, 21));
-        callButton = new QPushButton(centralWidget);
-        callButton->setObjectName(QStringLiteral("callButton"));
-        callButton->setGeometry(QRect(270, 150, 99, 27));
+        btn_RollDice = new QPushButton(centralWidget);
+        btn_RollDice->setObjectName(QStringLiteral("btn_RollDice"));
+        btn_RollDice->setGeometry(QRect(150, 150, 100, 27));
+        lbl_ActualDiceValue = new QLabel(centralWidget);
+        lbl_ActualDiceValue->setObjectName(QStringLiteral("lbl_ActualDiceValue"));
+        lbl_ActualDiceValue->setGeometry(QRect(187, 30, 26, 17));
+        lbl_ActualDiceValue->setFrameShape(QFrame::Box);
+        lbl_ActualDiceValue->setFrameShadow(QFrame::Plain);
+        lbl_FormerDiceValue = new QLabel(centralWidget);
+        lbl_FormerDiceValue->setObjectName(QStringLiteral("lbl_FormerDiceValue"));
+        lbl_FormerDiceValue->setGeometry(QRect(150, 30, 26, 17));
+        lbl_FormerDiceValue->setFrameShape(QFrame::Box);
+        lbl_FormerDiceValue->setFrameShadow(QFrame::Plain);
+        txfld_CallValueInput = new QLineEdit(centralWidget);
+        txfld_CallValueInput->setObjectName(QStringLiteral("txfld_CallValueInput"));
+        txfld_CallValueInput->setGeometry(QRect(220, 30, 31, 21));
+        btn_CallValue = new QPushButton(centralWidget);
+        btn_CallValue->setObjectName(QStringLiteral("btn_CallValue"));
+        btn_CallValue->setGeometry(QRect(270, 150, 99, 27));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 400, 25));
+        menuBar->setGeometry(QRect(0, 0, 400, 23));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -84,10 +84,10 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
-        rolldice->setText(QApplication::translate("MainWindow", "Roll", 0));
-        DiceShow->setText(QString());
-        LastValue->setText(QString());
-        callButton->setText(QApplication::translate("MainWindow", "Call", 0));
+        btn_RollDice->setText(QApplication::translate("MainWindow", "Roll", 0));
+        lbl_ActualDiceValue->setText(QString());
+        lbl_FormerDiceValue->setText(QString());
+        btn_CallValue->setText(QApplication::translate("MainWindow", "Call", 0));
     } // retranslateUi
 
 };

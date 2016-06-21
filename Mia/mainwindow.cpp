@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->CallLine->setValidator(new DiceValidator(this));
+    ui->txfld_CallValueInput->setValidator(new DiceValidator(this));
 }
 
 MainWindow::~MainWindow()
@@ -16,28 +16,28 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_rolldice_clicked()
+void MainWindow::on_btn_RollDice_clicked()
 {
-    ui->DiceShow->setText(mControl.getRandomValue().toQString());
-    ui->CallLine->setStyleSheet("QLineEdit { background-color: white}");
-    ui->CallLine->setText("");
+    ui->lbl_ActualDiceValue->setText(mControl.getRandomValue().toQString());
+    ui->txfld_CallValueInput->setStyleSheet("QLineEdit { background-color: white}");
+    ui->txfld_CallValueInput->setText("");
     if(mControl.isNewGame()){
-        ui->LastValue->clear();
+        ui->lbl_FormerDiceValue->clear();
     }else{
-        ui->LastValue->setText(mControl.getLastValue().toQString());
+        ui->lbl_FormerDiceValue->setText(mControl.getLastValue().toQString());
     }
-    ui->rolldice->setEnabled(false);
-    ui->callButton->setEnabled(true);
+    ui->btn_RollDice->setEnabled(false);
+    ui->btn_CallValue->setEnabled(true);
 }
 
-void MainWindow::on_callButton_clicked()
+void MainWindow::on_btn_CallValue_clicked()
 {
-    if(mControl.setCallValue(ui->CallLine->text().toInt())){
-        ui->CallLine->setStyleSheet("QLineEdit { background-color: green}");
-        ui->rolldice->setEnabled(true);
-        ui->callButton->setEnabled(false);
-        ui->DiceShow->setText("");
+    if(mControl.setCallValue(ui->txfld_CallValueInput->text().toInt())){
+        ui->txfld_CallValueInput->setStyleSheet("QLineEdit { background-color: green}");
+        ui->btn_RollDice->setEnabled(true);
+        ui->btn_CallValue->setEnabled(false);
+        ui->lbl_ActualDiceValue->setText("");
     }else{
-        ui->CallLine->setStyleSheet("QLineEdit { background-color: red}");
+        ui->txfld_CallValueInput->setStyleSheet("QLineEdit { background-color: red}");
     }
 }

@@ -18,9 +18,9 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_rolldice_clicked();
+    void on_btn_RollDice_clicked();
 
-    void on_callButton_clicked();
+    void on_btn_CallValue_clicked();
 
 private:
     Ui::MainWindow *ui;

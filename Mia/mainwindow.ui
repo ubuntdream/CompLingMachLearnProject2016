@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="rolldice">
+   <widget class="QPushButton" name="btn_RollDice">
     <property name="geometry">
      <rect>
       <x>150</x>
@@ -27,7 +27,7 @@
      <string>Roll</string>
     </property>
    </widget>
-   <widget class="QLabel" name="DiceShow">
+   <widget class="QLabel" name="lbl_ActualDiceValue">
     <property name="geometry">
      <rect>
       <x>187</x>
@@ -46,7 +46,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="LastValue">
+   <widget class="QLabel" name="lbl_FormerDiceValue">
     <property name="geometry">
      <rect>
       <x>150</x>
@@ -65,7 +65,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLineEdit" name="CallLine">
+   <widget class="QLineEdit" name="txfld_CallValueInput">
     <property name="geometry">
      <rect>
       <x>220</x>
@@ -75,7 +75,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="callButton">
+   <widget class="QPushButton" name="btn_CallValue">
     <property name="geometry">
      <rect>
       <x>270</x>
@@ -95,7 +95,7 @@
      <x>0</x>
      <y>0</y>
      <width>400</width>
-     <height>25</height>
+     <height>23</height>
     </rect>
    </property>
   </widget>
