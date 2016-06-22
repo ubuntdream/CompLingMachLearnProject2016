@@ -16,6 +16,8 @@ MainWindow::MainWindow(QWidget *parent) :
     list << "Welcome to mia"<<"Enjoy your game";
     model->setStringList(list);
     ui->lv_Log->setModel(model);
+    ui->btn_RollDice->setEnabled(true);
+    ui->btn_CallValue->setEnabled(false);
 }
 
 MainWindow::~MainWindow()

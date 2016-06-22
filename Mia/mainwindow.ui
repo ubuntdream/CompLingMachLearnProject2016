@@ -266,7 +266,7 @@
      <string>Your turn</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="btn_RollDice_2">
+   <widget class="QPushButton" name="btn_ShowResult">
     <property name="geometry">
      <rect>
       <x>530</x>
