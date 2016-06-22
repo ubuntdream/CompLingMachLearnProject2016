@@ -44,6 +44,7 @@ bool Control::setCallValue(int v){
     int highval = v/10;
 
     if(mStartGame || mlastValue.less_than(lowval,highval) || (mlastValue.mia && mlastValue.equal(lowval,highval))){
+        mlastValue.set(mNewValue);
         mNewValue.set(lowval,highval);
         mStartGame = false;
         return true;

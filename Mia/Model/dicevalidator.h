@@ -24,6 +24,8 @@ public:
                 || input == "51" || input == "52" || input == "53" || input == "54" || input == "55"
                 || input == "61" || input == "62" || input == "63" || input == "64" || input == "65" || input == "66"){
             res= Acceptable;
+        }else{
+            input="";
         }
         qDebug() << input << " res=" << res;
         return res;

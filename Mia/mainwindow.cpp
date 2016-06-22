@@ -3,18 +3,26 @@
 
 #include "Model/dicevalidator.h"
 
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     ui->txfld_CallValueInput->setValidator(new DiceValidator(this));
+    model = new QStringListModel(this);
+
+    QStringList list;
+    list << "Welcome to mia"<<"Enjoy your game";
+    model->setStringList(list);
+    ui->lv_Log->setModel(model);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
 
 void MainWindow::on_btn_RollDice_clicked()
 {
@@ -26,8 +34,7 @@ void MainWindow::on_btn_RollDice_clicked()
     }else{
         ui->lbl_FormerDiceValue->setText(mControl.getLastValue().toQString());
     }
-    ui->btn_RollDice->setEnabled(false);
-    ui->btn_CallValue->setEnabled(true);
+    toggleRollCall();
 }
 
 void MainWindow::on_btn_CallValue_clicked()
@@ -36,11 +43,25 @@ void MainWindow::on_btn_CallValue_clicked()
     int val = s.toInt();
     if(val > 0){
         mControl.setCallValue(val);
-        ui->txfld_CallValueInput->setStyleSheet("QLineEdit { background-color: green}");
+
+        //ui->txfld_CallValueInput->setStyleSheet("QLineEdit { background-color: green}");
+        //Die Farbe von dem Teil sollte in den Validator rein oder nicht? Wozu haben wir das?
+        toggleRollCall();
+        ui->lbl_ActualDiceValue->setText(s);
+    }else{
+        //ui->txfld_CallValueInput->setStyleSheet("QLineEdit { background-color: red}");
+    }
+}
+
+void MainWindow::toggleRollCall()
+{
+    if (!ui->btn_CallValue->isEnabled()) {
+        ui->btn_RollDice->setEnabled(false);
+        ui->btn_CallValue->setEnabled(true);
+        ui->txfld_CallValueInput->setEnabled(true);
+    }else{
         ui->btn_RollDice->setEnabled(true);
         ui->btn_CallValue->setEnabled(false);
-        ui->lbl_ActualDiceValue->setText("");
-    }else{
-        ui->txfld_CallValueInput->setStyleSheet("QLineEdit { background-color: red}");
+        ui->txfld_CallValueInput->setEnabled(false);
     }
 }

@@ -4,6 +4,7 @@
 #include <QMainWindow>
 
 #include "Control/control.h"
+#include "QStringListModel"
 
 namespace Ui {
 class MainWindow;
@@ -25,6 +26,8 @@ private slots:
 private:
     Ui::MainWindow *ui;
     Control mControl;
+    QStringListModel *model;
+    void toggleRollCall();
 };
 
 #endif // MAINWINDOW_H
