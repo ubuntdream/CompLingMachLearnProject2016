@@ -2,13 +2,18 @@
 
 #include <iostream>
 
-Control::Control()
-{    
+Control::Control(int anz)
+{
     std::srand(std::time(NULL));
     mStartGame = true;
     mNewValue = Value();
     mRandomValue = Value();
     mlastValue = Value();
+
+    for(int i = 0; i < anz; i++){
+        mPlayers.push_back(*(new Player));
+    }
+    mActivPlayerID = 0;
 }
 
 Control::~Control()
@@ -38,15 +43,31 @@ Value Control::getLastValue() const{
     return mlastValue;
 }
 
-// Set the Vallue witch called
-bool Control::setCallValue(int v){
-    int a = v%10;
-    int b = v/10;
+// Set the Vallue whitch was called
+void Control::setCallValue(int v){
+    int lowval = v%10;
+    int highval = v/10;
 
-    if(mStartGame || mlastValue.less_tan(a,b) || (mlastValue.mia && mlastValue.equal(a,b))){
-        mNewValue.set(a,b);
-        mStartGame = false;
-        return true;
-    }
-    return false;
+    mlastValue.set(mNewValue);
+    mNewValue.set(lowval,highval);
+    mStartGame = false;
+}
+
+bool Control::Call_is_correct(int v){
+    int lowval = v%10;
+    int highval = v/10;
+    return mStartGame || mlastValue.less_than(lowval,highval) || (mlastValue.mia && mlastValue.equal(lowval,highval));
+}
+
+Player Control::GetPlayer(int i) const{
+    if(i < mPlayers.size())
+        return mPlayers[i];
+    return mPlayers[0];
+}
+
+int Control::GetActivPlayerID() const{
+    return mActivPlayerID;
+}
+void Control::NextPlayer(){
+    mActivPlayerID = (mActivPlayerID+1)%mPlayers.size();
 }

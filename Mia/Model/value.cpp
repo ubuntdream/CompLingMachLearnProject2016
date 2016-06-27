@@ -9,10 +9,10 @@ Value::Value()
 
 Value::Value(int a, int b)
 {
-    this->a = std::min(a,b);
-    this->b = std::max(a,b);
+    this->lowval = std::min(a,b);
+    this->highval = std::max(a,b);
     pasch = a==b;
-    mia = this->a == 1 && this->b == 2;
+    mia = this->lowval == 1 && this->highval == 2;
 }
 
 Value::~Value()
@@ -21,55 +21,55 @@ Value::~Value()
 }
 
 void Value::set(Value v){
-    set(v.a,v.b);
+    set(v.lowval,v.highval);
 }
 
-void Value::set(int a, int b){
-    this->a = std::min(a,b);
-    this->b = std::max(a,b);
-    pasch = a==b;
-    mia = this->a == 1 && this->b == 2;
+void Value::set(int plowVal, int phighval){
+    this->lowval = std::min(plowVal,phighval);
+    this->highval = std::max(plowVal,phighval);
+    pasch = plowVal==phighval;
+    mia = this->lowval == 1 && this->highval == 2;
 }
 
 bool Value::equal(Value v){
-    return this->a == v.a && this->b == v.b;
+    return this->lowval == v.lowval && this->highval == v.highval;
 }
 
 bool Value::equal(int a, int b){
     return equal((Value(a,b)));
 }
 
-bool Value::great_tan(Value v){
+bool Value::greater_than(Value v){
     if(mia)
         return false;
     else if(pasch == v.pasch){
-        return(b > v.b || (b == v.b && a > v.a));
+        return(highval > v.highval || (highval == v.highval && lowval > v.lowval));
     }else{
         return pasch;
     }
 }
 
-bool Value::great_tan(int a, int b){
-    return great_tan(Value(a,b));
+bool Value::greater_than(int a, int b){
+    return greater_than(Value(a,b));
 }
 
 
-bool Value::less_tan(Value v){
+bool Value::less_than(Value v){
     if(v.mia){
         return true;
     }else if(pasch == v.pasch){
-        return(b < v.b || (b == v.b && a < v.a));
+        return(highval < v.highval || (highval == v.highval && lowval < v.lowval));
     }else{
         return !pasch;
     }
 }
 
-bool Value::less_tan(int a, int b){
-    return less_tan(Value(a,b));
+bool Value::less_than(int a, int b){
+    return less_than(Value(a,b));
 }
 
 int Value::toInt(){
-    return a+(10*b);
+    return lowval+(10*highval);
 }
 
 QString Value::toQString(){

@@ -6,24 +6,24 @@
 class Value
 {
 public:
-    Value(int a, int b);
+    Value(int lowval, int highval);
     Value();
     ~Value();
 
-    int a,b;
+    int lowval,highval;
     bool pasch,mia;
 
-    void set(int a, int b);
+    void set(int lowval, int highval);
     void set(Value v);
 
-    bool equal(int a, int b);
+    bool equal(int lowval, int highval);
     bool equal(Value v);
 
-    bool great_tan(int a, int b);
-    bool great_tan(Value v);
+    bool greater_than(int lowval, int highval);
+    bool greater_than(Value v);
 
-    bool less_tan(int a, int b);
-    bool less_tan(Value v);
+    bool less_than(int lowval, int highval);
+    bool less_than(Value v);
 
     int toInt();
     QString toQString();

@@ -4,6 +4,7 @@
 #include <QMainWindow>
 
 #include "Control/control.h"
+#include "QStringListModel"
 
 namespace Ui {
 class MainWindow;
@@ -18,13 +19,17 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_rolldice_clicked();
+    void on_btn_RollDice_clicked();
 
-    void on_callButton_clicked();
+    void on_btn_CallValue_clicked();
 
 private:
     Ui::MainWindow *ui;
-    Control mControl;
+    Control *mControl;
+    QStringListModel *model;
+    void toggleRollCall();
+    void setPlayerValue();
+    void setActivPlayer();
 };
 
 #endif // MAINWINDOW_H

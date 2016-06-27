@@ -16,11 +16,13 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     Control/control.cpp \
     Model/value.cpp \
-    Model/dicevalidator.cpp
+    Model/dicevalidator.cpp \
+    Model/player.cpp
 
 HEADERS  += mainwindow.h \
     Control/control.h \
     Model/value.h \
-    Model/dicevalidator.h
+    Model/dicevalidator.h \
+    Model/player.h
 
 FORMS    += mainwindow.ui
