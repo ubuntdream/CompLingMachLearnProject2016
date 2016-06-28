@@ -56,6 +56,8 @@ Value Control::getLastValue() const{
  * Überfüht einen Passenden Int in ein Value,
  * Der aktuelle Call-Wert ersetzt den letzten Call-Wert
  * und erhält selbst den Value-Wert
+ *
+ * Behandeln das Ereigenis das Mia ausgesprochen wurde fehlt noch
  */
 void Control::setCallValue(int v){
     int lowval = v%10;
@@ -98,9 +100,9 @@ void Control::NextPlayer(){
 }
 
 // Behandelt das Event, dass die Würfel vom nächsten aufgedeckt werden, also der Lüge bezichtigt
+// Muss noch getestet werden!
 void Control::look_at_last_Player(){
     if(mNewValue.equal(mRandomValue) || mRandomValue.greater_than(mNewValue)){
-        // Ansage war korrekt
         if(mRandomValue.mia){
             mPlayers[mActivPlayerID].looLife(2);
         }else{

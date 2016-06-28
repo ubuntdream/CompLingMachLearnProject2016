@@ -11,18 +11,21 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = Mia
 TEMPLATE = app
 
+CONFIG += c++11
 
 SOURCES += main.cpp\
         mainwindow.cpp \
     Control/control.cpp \
     Model/value.cpp \
     Model/dicevalidator.cpp \
-    Model/player.cpp
+    Model/player.cpp \
+    Control/statistic.cpp
 
 HEADERS  += mainwindow.h \
     Control/control.h \
     Model/value.h \
     Model/dicevalidator.h \
-    Model/player.h
+    Model/player.h \
+    Control/statistic.h
 
 FORMS    += mainwindow.ui

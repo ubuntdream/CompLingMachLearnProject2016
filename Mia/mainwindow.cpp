@@ -3,6 +3,8 @@
 
 #include "Model/dicevalidator.h"
 
+#include "Control/statistic.h"
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -23,6 +25,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     setPlayerValue();
     setActivPlayer();
+
+    Statistic tmp;
 }
 
 MainWindow::~MainWindow()
