@@ -10,7 +10,10 @@ public:
     Value();
     ~Value();
 
+    // lowval ist der kleinere Wert der Würfel
+    // highval ist der größere Wert der Würfel
     int lowval,highval;
+    // gibt an, ob es sich um einen Pasch oder Mexxchen handelt
     bool pasch,mia;
 
     void set(int lowval, int highval);

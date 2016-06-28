@@ -2,6 +2,9 @@
 
 #include <iostream>
 
+// Konstruktor der Klasse
+// int anz ist die Anzahl der Spieler die erstellt werden soll
+
 Control::Control(int anz)
 {
     std::srand(std::time(NULL));
@@ -29,6 +32,7 @@ Value Control::getRandomValue(){
 }
 
 // Roll one dice
+// Gibt einen Zufälligen Ins 1,..,6 zurück
 int Control::rollDice(){
     return (rand() % 6) + 1;
 }
@@ -43,7 +47,12 @@ Value Control::getLastValue() const{
     return mlastValue;
 }
 
-// Set the Vallue whitch was called
+// Set the Vallue which was called
+/*
+ * Überfüht einen Passenden Int in ein Value,
+ * Der aktuelle Call-Wert ersetzt den letzten Call-Wert
+ * und erhält selbst den Value-Wert
+ */
 void Control::setCallValue(int v){
     int lowval = v%10;
     int highval = v/10;
@@ -53,21 +62,26 @@ void Control::setCallValue(int v){
     mStartGame = false;
 }
 
+// Überprüft ob die eingabe korrekt ist
 bool Control::Call_is_correct(int v){
     int lowval = v%10;
     int highval = v/10;
-    return mStartGame || mlastValue.less_than(lowval,highval) || (mlastValue.mia && mlastValue.equal(lowval,highval));
+    return mStartGame || mlastValue.less_than(lowval,highval);
 }
 
+//Gibt einen Spieler passend zur ID zurück
 Player Control::GetPlayer(int i) const{
     if(i < mPlayers.size())
         return mPlayers[i];
     return mPlayers[0];
 }
 
+// Gibt die ID des aktuellen Spilers zurück
 int Control::GetActivPlayerID() const{
     return mActivPlayerID;
 }
+
+// Weitersetzen der ID des anktuellen Spielers
 void Control::NextPlayer(){
     mActivPlayerID = (mActivPlayerID+1)%mPlayers.size();
 }

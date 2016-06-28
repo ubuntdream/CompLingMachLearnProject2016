@@ -5,10 +5,12 @@
 class Player
 {
 private:
+    //Speicherung der aktuellen Leben und Siege des Spielers
     int mLifes, mWins;
 public:
     Player();
     ~Player();
+
     int getLife() const;
     void looLife(int l);
     void setLife(int l);

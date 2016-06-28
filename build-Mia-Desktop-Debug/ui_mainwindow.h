@@ -51,7 +51,7 @@ public:
     QFrame *line_2;
     QFrame *line_3;
     QFrame *line_4;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout;
     QVBoxLayout *verticalLayout_6;
     QSpacerItem *verticalSpacer;
@@ -154,10 +154,10 @@ public:
         line_4->setLineWidth(2);
         line_4->setFrameShape(QFrame::HLine);
         line_4->setFrameShadow(QFrame::Sunken);
-        widget = new QWidget(centralWidget);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(430, 270, 311, 115));
-        horizontalLayout = new QHBoxLayout(widget);
+        layoutWidget = new QWidget(centralWidget);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(430, 270, 311, 115));
+        horizontalLayout = new QHBoxLayout(layoutWidget);
         horizontalLayout->setSpacing(6);
         horizontalLayout->setContentsMargins(11, 11, 11, 11);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
@@ -172,17 +172,17 @@ public:
         verticalLayout = new QVBoxLayout();
         verticalLayout->setSpacing(6);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        Player_1_Name = new QLabel(widget);
+        Player_1_Name = new QLabel(layoutWidget);
         Player_1_Name->setObjectName(QStringLiteral("Player_1_Name"));
 
         verticalLayout->addWidget(Player_1_Name);
 
-        Player_2_Name = new QLabel(widget);
+        Player_2_Name = new QLabel(layoutWidget);
         Player_2_Name->setObjectName(QStringLiteral("Player_2_Name"));
 
         verticalLayout->addWidget(Player_2_Name);
 
-        Player_3_Name = new QLabel(widget);
+        Player_3_Name = new QLabel(layoutWidget);
         Player_3_Name->setObjectName(QStringLiteral("Player_3_Name"));
 
         verticalLayout->addWidget(Player_3_Name);
@@ -196,7 +196,7 @@ public:
         verticalLayout_5 = new QVBoxLayout();
         verticalLayout_5->setSpacing(6);
         verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
-        label_16 = new QLabel(widget);
+        label_16 = new QLabel(layoutWidget);
         label_16->setObjectName(QStringLiteral("label_16"));
 
         verticalLayout_5->addWidget(label_16);
@@ -204,17 +204,17 @@ public:
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        Player_1_Life = new QLabel(widget);
+        Player_1_Life = new QLabel(layoutWidget);
         Player_1_Life->setObjectName(QStringLiteral("Player_1_Life"));
 
         verticalLayout_2->addWidget(Player_1_Life);
 
-        Player_2_Life = new QLabel(widget);
+        Player_2_Life = new QLabel(layoutWidget);
         Player_2_Life->setObjectName(QStringLiteral("Player_2_Life"));
 
         verticalLayout_2->addWidget(Player_2_Life);
 
-        Player_3_Life = new QLabel(widget);
+        Player_3_Life = new QLabel(layoutWidget);
         Player_3_Life->setObjectName(QStringLiteral("Player_3_Life"));
 
         verticalLayout_2->addWidget(Player_3_Life);
@@ -228,7 +228,7 @@ public:
         verticalLayout_4 = new QVBoxLayout();
         verticalLayout_4->setSpacing(6);
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
-        label_17 = new QLabel(widget);
+        label_17 = new QLabel(layoutWidget);
         label_17->setObjectName(QStringLiteral("label_17"));
 
         verticalLayout_4->addWidget(label_17);
@@ -236,17 +236,17 @@ public:
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setSpacing(6);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-        Player_1_Win = new QLabel(widget);
+        Player_1_Win = new QLabel(layoutWidget);
         Player_1_Win->setObjectName(QStringLiteral("Player_1_Win"));
 
         verticalLayout_3->addWidget(Player_1_Win);
 
-        Player_2_Win = new QLabel(widget);
+        Player_2_Win = new QLabel(layoutWidget);
         Player_2_Win->setObjectName(QStringLiteral("Player_2_Win"));
 
         verticalLayout_3->addWidget(Player_2_Win);
 
-        Player_3_Win = new QLabel(widget);
+        Player_3_Win = new QLabel(layoutWidget);
         Player_3_Win->setObjectName(QStringLiteral("Player_3_Win"));
 
         verticalLayout_3->addWidget(Player_3_Win);
@@ -260,7 +260,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 768, 25));
+        menuBar->setGeometry(QRect(0, 0, 768, 20));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));

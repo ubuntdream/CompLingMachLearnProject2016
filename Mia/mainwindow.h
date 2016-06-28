@@ -24,9 +24,11 @@ private slots:
     void on_btn_CallValue_clicked();
 
 private:
+    // Verknüpfung zur GUI(ui) und Control
     Ui::MainWindow *ui;
     Control *mControl;
     QStringListModel *model;
+
     void toggleRollCall();
     void setPlayerValue();
     void setActivPlayer();

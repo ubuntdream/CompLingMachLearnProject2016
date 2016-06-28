@@ -6,6 +6,7 @@
 
 #include <vector>
 #include <ui_mainwindow.h>
+#include <QDebug>
 
 #include "Model/value.h"
 #include "Model/player.h"
@@ -14,16 +15,26 @@ class Control
 {
 private:
     int rollDice();
+
+    // Speicherung der letzten Ansage
     Value mlastValue;
+    //Speicherung des aktuel gewürfelte Wert
     Value mRandomValue;
+    // Speichung der atuellen Ansage
     Value mNewValue;
+    // Gibt an, ob die Spielrunde neu gestartet wurde
     bool mStartGame;
+    //Speichung aller Spieler
     std::vector<Player> mPlayers;
-    Ui::MainWindow *mGUI;
+    // Speicherung der ID, welcher Spieler aktuell an der Reihe ist
     int mActivPlayerID;
+    // Verknüpfung zur GUI
+    Ui::MainWindow *mGUI;
+
 public:
     Control(int anz);
     ~Control();
+
     Value getRandomValue();
     bool isNewGame() const;
     Value getLastValue() const;

@@ -56,6 +56,19 @@ void MainWindow::on_btn_CallValue_clicked()
     }else{
         //Nicht schön, aber so sieht man, dass eingabe Fasch war
         ui->txfld_CallValueInput->setStyleSheet("QLineEdit { background-color: red}");
+
+        //pseudo code
+        /*
+         *if controller.mlastValue==mia && tatsächlicher Wert war mia
+         * && Player aktzeptiert
+         *  Player.lifes --;
+         *else if Player hat aufgedeckt
+         * Player.lifes =Player.lifes -2;
+         *
+         * else if mlastValue == mia, aber tatsächlicher Wert war nicht mia und player deckt auf dann
+         * Ansager.lifes --;
+        */
+
     }
 }
 
@@ -72,6 +85,7 @@ void MainWindow::toggleRollCall()
     }
 }
 
+// Läd nacheinander die einzenen Spieler und blendet ihre Werte ein
 void MainWindow::setPlayerValue(){
     Player p = mControl->GetPlayer(0);
     ui->Player_1_Life->setText(QString::number(p.getLife()));
@@ -86,6 +100,7 @@ void MainWindow::setPlayerValue(){
     ui->Player_3_Win->setText(QString::number(p.getWin()));
 }
 
+// Markiert, welcher Spieler aktuell am Zug ist
 void MainWindow::setActivPlayer(){
     int i = mControl->GetActivPlayerID();
     ui->Player_1_Name->setStyleSheet("QLabel { background-color : white};");
