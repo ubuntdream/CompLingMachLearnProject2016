@@ -56,6 +56,19 @@ void MainWindow::on_btn_CallValue_clicked()
     }else{
         //Nicht schön, aber so sieht man, dass eingabe Fasch war
         ui->txfld_CallValueInput->setStyleSheet("QLineEdit { background-color: red}");
+
+        //pseudo code
+        /*
+         *if controller.mlastValue==mia && tatsächlicher Wert war mia
+         * && Player aktzeptiert
+         *  Player.lifes --;
+         *else if Player hat aufgedeckt
+         * Player.lifes =Player.lifes -2;
+         *
+         * else if mlastValue == mia, aber tatsächlicher Wert war nicht mia und player deckt auf dann
+         * Ansager.lifes --;
+        */
+
     }
 }
 
