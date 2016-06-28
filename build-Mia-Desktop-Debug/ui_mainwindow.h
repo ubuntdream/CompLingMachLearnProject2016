@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.6.1
+** Created by: Qt User Interface Compiler version 5.2.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QFrame>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -21,8 +22,10 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -41,12 +44,6 @@ public:
     QLabel *label_3;
     QListView *lv_Log;
     QLabel *label_4;
-    QLabel *label_5;
-    QLabel *label_6;
-    QLabel *label_7;
-    QLabel *label_8;
-    QLabel *label_9;
-    QLabel *label_10;
     QLabel *label_11;
     QLabel *label_12;
     QPushButton *btn_ShowResult;
@@ -54,11 +51,26 @@ public:
     QFrame *line_2;
     QFrame *line_3;
     QFrame *line_4;
-    QLabel *label_13;
-    QLabel *label_14;
-    QLabel *label_15;
+    QWidget *widget;
+    QHBoxLayout *horizontalLayout;
+    QVBoxLayout *verticalLayout_6;
+    QSpacerItem *verticalSpacer;
+    QVBoxLayout *verticalLayout;
+    QLabel *Player_1_Name;
+    QLabel *Player_2_Name;
+    QLabel *Player_3_Name;
+    QVBoxLayout *verticalLayout_5;
     QLabel *label_16;
+    QVBoxLayout *verticalLayout_2;
+    QLabel *Player_1_Life;
+    QLabel *Player_2_Life;
+    QLabel *Player_3_Life;
+    QVBoxLayout *verticalLayout_4;
     QLabel *label_17;
+    QVBoxLayout *verticalLayout_3;
+    QLabel *Player_1_Win;
+    QLabel *Player_2_Win;
+    QLabel *Player_3_Win;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -108,24 +120,6 @@ public:
         font.setFamily(QStringLiteral("DejaVu Sans"));
         font.setPointSize(14);
         label_4->setFont(font);
-        label_5 = new QLabel(centralWidget);
-        label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(430, 320, 64, 15));
-        label_6 = new QLabel(centralWidget);
-        label_6->setObjectName(QStringLiteral("label_6"));
-        label_6->setGeometry(QRect(430, 360, 64, 15));
-        label_7 = new QLabel(centralWidget);
-        label_7->setObjectName(QStringLiteral("label_7"));
-        label_7->setGeometry(QRect(430, 400, 64, 15));
-        label_8 = new QLabel(centralWidget);
-        label_8->setObjectName(QStringLiteral("label_8"));
-        label_8->setGeometry(QRect(550, 320, 64, 15));
-        label_9 = new QLabel(centralWidget);
-        label_9->setObjectName(QStringLiteral("label_9"));
-        label_9->setGeometry(QRect(550, 360, 64, 15));
-        label_10 = new QLabel(centralWidget);
-        label_10->setObjectName(QStringLiteral("label_10"));
-        label_10->setGeometry(QRect(550, 400, 64, 15));
         label_11 = new QLabel(centralWidget);
         label_11->setObjectName(QStringLiteral("label_11"));
         label_11->setGeometry(QRect(430, 240, 101, 21));
@@ -160,25 +154,113 @@ public:
         line_4->setLineWidth(2);
         line_4->setFrameShape(QFrame::HLine);
         line_4->setFrameShadow(QFrame::Sunken);
-        label_13 = new QLabel(centralWidget);
-        label_13->setObjectName(QStringLiteral("label_13"));
-        label_13->setGeometry(QRect(660, 320, 64, 15));
-        label_14 = new QLabel(centralWidget);
-        label_14->setObjectName(QStringLiteral("label_14"));
-        label_14->setGeometry(QRect(660, 360, 64, 15));
-        label_15 = new QLabel(centralWidget);
-        label_15->setObjectName(QStringLiteral("label_15"));
-        label_15->setGeometry(QRect(660, 400, 64, 15));
-        label_16 = new QLabel(centralWidget);
+        widget = new QWidget(centralWidget);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(430, 270, 311, 115));
+        horizontalLayout = new QHBoxLayout(widget);
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        verticalLayout_6 = new QVBoxLayout();
+        verticalLayout_6->setSpacing(6);
+        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_6->addItem(verticalSpacer);
+
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setSpacing(6);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        Player_1_Name = new QLabel(widget);
+        Player_1_Name->setObjectName(QStringLiteral("Player_1_Name"));
+
+        verticalLayout->addWidget(Player_1_Name);
+
+        Player_2_Name = new QLabel(widget);
+        Player_2_Name->setObjectName(QStringLiteral("Player_2_Name"));
+
+        verticalLayout->addWidget(Player_2_Name);
+
+        Player_3_Name = new QLabel(widget);
+        Player_3_Name->setObjectName(QStringLiteral("Player_3_Name"));
+
+        verticalLayout->addWidget(Player_3_Name);
+
+
+        verticalLayout_6->addLayout(verticalLayout);
+
+
+        horizontalLayout->addLayout(verticalLayout_6);
+
+        verticalLayout_5 = new QVBoxLayout();
+        verticalLayout_5->setSpacing(6);
+        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
+        label_16 = new QLabel(widget);
         label_16->setObjectName(QStringLiteral("label_16"));
-        label_16->setGeometry(QRect(550, 280, 64, 15));
-        label_17 = new QLabel(centralWidget);
+
+        verticalLayout_5->addWidget(label_16);
+
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setSpacing(6);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        Player_1_Life = new QLabel(widget);
+        Player_1_Life->setObjectName(QStringLiteral("Player_1_Life"));
+
+        verticalLayout_2->addWidget(Player_1_Life);
+
+        Player_2_Life = new QLabel(widget);
+        Player_2_Life->setObjectName(QStringLiteral("Player_2_Life"));
+
+        verticalLayout_2->addWidget(Player_2_Life);
+
+        Player_3_Life = new QLabel(widget);
+        Player_3_Life->setObjectName(QStringLiteral("Player_3_Life"));
+
+        verticalLayout_2->addWidget(Player_3_Life);
+
+
+        verticalLayout_5->addLayout(verticalLayout_2);
+
+
+        horizontalLayout->addLayout(verticalLayout_5);
+
+        verticalLayout_4 = new QVBoxLayout();
+        verticalLayout_4->setSpacing(6);
+        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        label_17 = new QLabel(widget);
         label_17->setObjectName(QStringLiteral("label_17"));
-        label_17->setGeometry(QRect(660, 280, 64, 15));
+
+        verticalLayout_4->addWidget(label_17);
+
+        verticalLayout_3 = new QVBoxLayout();
+        verticalLayout_3->setSpacing(6);
+        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        Player_1_Win = new QLabel(widget);
+        Player_1_Win->setObjectName(QStringLiteral("Player_1_Win"));
+
+        verticalLayout_3->addWidget(Player_1_Win);
+
+        Player_2_Win = new QLabel(widget);
+        Player_2_Win->setObjectName(QStringLiteral("Player_2_Win"));
+
+        verticalLayout_3->addWidget(Player_2_Win);
+
+        Player_3_Win = new QLabel(widget);
+        Player_3_Win->setObjectName(QStringLiteral("Player_3_Win"));
+
+        verticalLayout_3->addWidget(Player_3_Win);
+
+
+        verticalLayout_4->addLayout(verticalLayout_3);
+
+
+        horizontalLayout->addLayout(verticalLayout_4);
+
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 768, 23));
+        menuBar->setGeometry(QRect(0, 0, 768, 25));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -203,20 +285,20 @@ public:
         label_2->setText(QApplication::translate("MainWindow", "Actual rolled value", 0));
         label_3->setText(QApplication::translate("MainWindow", "Call input", 0));
         label_4->setText(QApplication::translate("MainWindow", "Log", 0));
-        label_5->setText(QApplication::translate("MainWindow", "Player1", 0));
-        label_6->setText(QApplication::translate("MainWindow", "Player2", 0));
-        label_7->setText(QApplication::translate("MainWindow", "Player3", 0));
-        label_8->setText(QApplication::translate("MainWindow", "TextLabel", 0));
-        label_9->setText(QApplication::translate("MainWindow", "TextLabel", 0));
-        label_10->setText(QApplication::translate("MainWindow", "TextLabel", 0));
         label_11->setText(QApplication::translate("MainWindow", "Statistics", 0));
         label_12->setText(QApplication::translate("MainWindow", "Your turn", 0));
         btn_ShowResult->setText(QApplication::translate("MainWindow", "Show/Aufdecken", 0));
-        label_13->setText(QApplication::translate("MainWindow", "TextLabel", 0));
-        label_14->setText(QApplication::translate("MainWindow", "TextLabel", 0));
-        label_15->setText(QApplication::translate("MainWindow", "TextLabel", 0));
+        Player_1_Name->setText(QApplication::translate("MainWindow", "Player1", 0));
+        Player_2_Name->setText(QApplication::translate("MainWindow", "Player2", 0));
+        Player_3_Name->setText(QApplication::translate("MainWindow", "Player3", 0));
         label_16->setText(QApplication::translate("MainWindow", "Lifes", 0));
+        Player_1_Life->setText(QApplication::translate("MainWindow", "TextLabel", 0));
+        Player_2_Life->setText(QApplication::translate("MainWindow", "TextLabel", 0));
+        Player_3_Life->setText(QApplication::translate("MainWindow", "TextLabel", 0));
         label_17->setText(QApplication::translate("MainWindow", "Wins", 0));
+        Player_1_Win->setText(QApplication::translate("MainWindow", "TextLabel", 0));
+        Player_2_Win->setText(QApplication::translate("MainWindow", "TextLabel", 0));
+        Player_3_Win->setText(QApplication::translate("MainWindow", "TextLabel", 0));
     } // retranslateUi
 
 };
