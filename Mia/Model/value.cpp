@@ -55,6 +55,7 @@ bool Value::greater_than(int a, int b){
 
 
 bool Value::less_than(Value v){
+    if(mia){return false;}//dann ist das spiel vorbei oder nicht?
     if(v.mia){
         return true;
     }else if(pasch == v.pasch){

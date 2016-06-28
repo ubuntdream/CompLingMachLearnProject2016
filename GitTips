@@ -1,0 +1,7 @@
+Bei git pull merge Konflikten, wenn man hart auf den stand vom Zentralen Repo aufsetzen will
+
+
+Really the ideal way to do this is to not use pull at all, but instead fetch and reset:
+git fetch origin master
+git reset --hard FETCH_HEAD
+git clean -df

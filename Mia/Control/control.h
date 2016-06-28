@@ -6,6 +6,7 @@
 
 #include <vector>
 #include <ui_mainwindow.h>
+#include <QDebug>
 
 #include "Model/value.h"
 #include "Model/player.h"

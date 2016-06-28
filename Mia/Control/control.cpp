@@ -43,7 +43,7 @@ Value Control::getLastValue() const{
     return mlastValue;
 }
 
-// Set the Vallue whitch was called
+// Set the Vallue which was called
 void Control::setCallValue(int v){
     int lowval = v%10;
     int highval = v/10;
@@ -56,7 +56,8 @@ void Control::setCallValue(int v){
 bool Control::Call_is_correct(int v){
     int lowval = v%10;
     int highval = v/10;
-    return mStartGame || mlastValue.less_than(lowval,highval) || (mlastValue.mia && mlastValue.equal(lowval,highval));
+     // wozu soll der hintere teil gut sein? ich muss doch immer größer als der letzte wert sein.
+    return mStartGame || mlastValue.less_than(lowval,highval); //|| (mlastValue.mia && mlastValue.equal(lowval,highval));
 }
 
 Player Control::GetPlayer(int i) const{
