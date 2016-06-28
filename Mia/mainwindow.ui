@@ -198,7 +198,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Show/Aufdecken</string>
+     <string>Show</string>
     </property>
    </widget>
    <widget class="Line" name="line">
@@ -401,7 +401,7 @@
      <x>0</x>
      <y>0</y>
      <width>768</width>
-     <height>20</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

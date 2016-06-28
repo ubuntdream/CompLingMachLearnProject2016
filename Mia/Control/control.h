@@ -5,11 +5,11 @@
 #include <cstdlib>
 
 #include <vector>
-#include <ui_mainwindow.h>
 #include <QDebug>
 
 #include "Model/value.h"
 #include "Model/player.h"
+
 
 class Control
 {
@@ -28,8 +28,6 @@ private:
     std::vector<Player> mPlayers;
     // Speicherung der ID, welcher Spieler aktuell an der Reihe ist
     int mActivPlayerID;
-    // Verknüpfung zur GUI
-    Ui::MainWindow *mGUI;
 
 public:
     Control(int anz);
@@ -37,12 +35,15 @@ public:
 
     Value getRandomValue();
     bool isNewGame() const;
+    void setNewGame();
     Value getLastValue() const;
     void setCallValue(int v);
     bool Call_is_correct(int v);
     Player GetPlayer(int i) const;
     int GetActivPlayerID() const;
+    int GetLastPlayerID() ;
     void NextPlayer();
+    void look_at_last_Player();
 };
 
 #endif // CONTROL_H

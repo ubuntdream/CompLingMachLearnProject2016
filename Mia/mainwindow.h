@@ -18,10 +18,14 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+    void setPlayerValue();
+
 private slots:
     void on_btn_RollDice_clicked();
 
     void on_btn_CallValue_clicked();
+
+    void on_btn_ShowResult_clicked();
 
 private:
     // Verknüpfung zur GUI(ui) und Control
@@ -30,7 +34,6 @@ private:
     QStringListModel *model;
 
     void toggleRollCall();
-    void setPlayerValue();
     void setActivPlayer();
 };
 

@@ -29,3 +29,5 @@
 *.app
 
 *.pro.user
+*.pro.user.*
+build-Mia-Desktop-Debug/

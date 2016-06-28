@@ -260,7 +260,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 768, 20));
+        menuBar->setGeometry(QRect(0, 0, 768, 25));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -287,7 +287,7 @@ public:
         label_4->setText(QApplication::translate("MainWindow", "Log", 0));
         label_11->setText(QApplication::translate("MainWindow", "Statistics", 0));
         label_12->setText(QApplication::translate("MainWindow", "Your turn", 0));
-        btn_ShowResult->setText(QApplication::translate("MainWindow", "Show/Aufdecken", 0));
+        btn_ShowResult->setText(QApplication::translate("MainWindow", "Show", 0));
         Player_1_Name->setText(QApplication::translate("MainWindow", "Player1", 0));
         Player_2_Name->setText(QApplication::translate("MainWindow", "Player2", 0));
         Player_3_Name->setText(QApplication::translate("MainWindow", "Player3", 0));
