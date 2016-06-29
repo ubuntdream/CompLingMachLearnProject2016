@@ -14,7 +14,7 @@ CC            = gcc
 CXX           = g++
 DEFINES       = -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -m64 -pipe -g -Wall -W -D_REENTRANT -fPIE $(DEFINES)
-CXXFLAGS      = -m64 -pipe -g -Wall -W -D_REENTRANT -fPIE $(DEFINES)
+CXXFLAGS      = -m64 -pipe -g -std=c++0x -Wall -W -D_REENTRANT -fPIE $(DEFINES)
 INCPATH       = -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I../Mia -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -I. -I. -I.
 LINK          = g++
 LFLAGS        = -m64
@@ -50,7 +50,8 @@ SOURCES       = ../Mia/main.cpp \
 		../Mia/Control/control.cpp \
 		../Mia/Model/value.cpp \
 		../Mia/Model/dicevalidator.cpp \
-		../Mia/Model/player.cpp moc_mainwindow.cpp \
+		../Mia/Model/player.cpp \
+		../Mia/Control/statistic.cpp moc_mainwindow.cpp \
 		moc_dicevalidator.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
@@ -58,6 +59,7 @@ OBJECTS       = main.o \
 		value.o \
 		dicevalidator.o \
 		player.o \
+		statistic.o \
 		moc_mainwindow.o \
 		moc_dicevalidator.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -107,6 +109,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resolve_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_post.prf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/c++11.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/gdb_dwarf_index.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/warn_on.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt.prf \
@@ -201,6 +204,7 @@ Makefile: ../Mia/Mia.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmak
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resolve_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_post.prf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/c++11.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/gdb_dwarf_index.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/warn_on.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt.prf \
@@ -265,6 +269,7 @@ Makefile: ../Mia/Mia.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmak
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resolve_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_post.prf:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/c++11.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/gdb_dwarf_index.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/warn_on.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt.prf:
@@ -288,7 +293,7 @@ qmake_all: FORCE
 
 dist: 
 	@test -d .tmp/Mia1.0.0 || mkdir -p .tmp/Mia1.0.0
-	$(COPY_FILE) --parents $(SOURCES) $(DIST) .tmp/Mia1.0.0/ && $(COPY_FILE) --parents ../Mia/mainwindow.h ../Mia/Control/control.h ../Mia/Model/value.h ../Mia/Model/dicevalidator.h ../Mia/Model/player.h .tmp/Mia1.0.0/ && $(COPY_FILE) --parents ../Mia/main.cpp ../Mia/mainwindow.cpp ../Mia/Control/control.cpp ../Mia/Model/value.cpp ../Mia/Model/dicevalidator.cpp ../Mia/Model/player.cpp .tmp/Mia1.0.0/ && $(COPY_FILE) --parents ../Mia/mainwindow.ui .tmp/Mia1.0.0/ && (cd `dirname .tmp/Mia1.0.0` && $(TAR) Mia1.0.0.tar Mia1.0.0 && $(COMPRESS) Mia1.0.0.tar) && $(MOVE) `dirname .tmp/Mia1.0.0`/Mia1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/Mia1.0.0
+	$(COPY_FILE) --parents $(SOURCES) $(DIST) .tmp/Mia1.0.0/ && $(COPY_FILE) --parents ../Mia/mainwindow.h ../Mia/Control/control.h ../Mia/Model/value.h ../Mia/Model/dicevalidator.h ../Mia/Model/player.h ../Mia/Control/statistic.h .tmp/Mia1.0.0/ && $(COPY_FILE) --parents ../Mia/main.cpp ../Mia/mainwindow.cpp ../Mia/Control/control.cpp ../Mia/Model/value.cpp ../Mia/Model/dicevalidator.cpp ../Mia/Model/player.cpp ../Mia/Control/statistic.cpp .tmp/Mia1.0.0/ && $(COPY_FILE) --parents ../Mia/mainwindow.ui .tmp/Mia1.0.0/ && (cd `dirname .tmp/Mia1.0.0` && $(TAR) Mia1.0.0.tar Mia1.0.0 && $(COMPRESS) Mia1.0.0.tar) && $(MOVE) `dirname .tmp/Mia1.0.0`/Mia1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/Mia1.0.0
 
 
 clean:compiler_clean 
@@ -426,7 +431,6 @@ moc_mainwindow.cpp: /usr/include/qt5/QtWidgets/QMainWindow \
 		/usr/include/qt5/QtWidgets/qtabwidget.h \
 		/usr/include/qt5/QtGui/qicon.h \
 		../Mia/Control/control.h \
-		ui_mainwindow.h \
 		/usr/include/qt5/QtCore/QDebug \
 		../Mia/Model/value.h \
 		/usr/include/qt5/QtCore/QString \
@@ -649,7 +653,6 @@ main.o: ../Mia/main.cpp ../Mia/mainwindow.h \
 		/usr/include/qt5/QtWidgets/qtabwidget.h \
 		/usr/include/qt5/QtGui/qicon.h \
 		../Mia/Control/control.h \
-		ui_mainwindow.h \
 		/usr/include/qt5/QtCore/QDebug \
 		../Mia/Model/value.h \
 		/usr/include/qt5/QtCore/QString \
@@ -779,7 +782,6 @@ mainwindow.o: ../Mia/mainwindow.cpp ../Mia/mainwindow.h \
 		/usr/include/qt5/QtWidgets/qtabwidget.h \
 		/usr/include/qt5/QtGui/qicon.h \
 		../Mia/Control/control.h \
-		ui_mainwindow.h \
 		/usr/include/qt5/QtCore/QDebug \
 		../Mia/Model/value.h \
 		/usr/include/qt5/QtCore/QString \
@@ -787,16 +789,72 @@ mainwindow.o: ../Mia/mainwindow.cpp ../Mia/mainwindow.h \
 		/usr/include/qt5/QtCore/QStringListModel \
 		/usr/include/qt5/QtCore/qstringlistmodel.h \
 		/usr/include/qt5/QtCore/qabstractitemmodel.h \
+		ui_mainwindow.h \
+		/usr/include/qt5/QtCore/QVariant \
+		/usr/include/qt5/QtWidgets/QAction \
+		/usr/include/qt5/QtWidgets/qaction.h \
+		/usr/include/qt5/QtWidgets/qactiongroup.h \
+		/usr/include/qt5/QtWidgets/QApplication \
+		/usr/include/qt5/QtWidgets/qapplication.h \
+		/usr/include/qt5/QtCore/qcoreapplication.h \
+		/usr/include/qt5/QtCore/qeventloop.h \
+		/usr/include/qt5/QtWidgets/qdesktopwidget.h \
+		/usr/include/qt5/QtGui/qguiapplication.h \
+		/usr/include/qt5/QtGui/qinputmethod.h \
+		/usr/include/qt5/QtWidgets/QButtonGroup \
+		/usr/include/qt5/QtWidgets/qbuttongroup.h \
+		/usr/include/qt5/QtWidgets/QFrame \
+		/usr/include/qt5/QtWidgets/qframe.h \
+		/usr/include/qt5/QtWidgets/QHBoxLayout \
+		/usr/include/qt5/QtWidgets/qboxlayout.h \
+		/usr/include/qt5/QtWidgets/qlayout.h \
+		/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		/usr/include/qt5/QtWidgets/qgridlayout.h \
+		/usr/include/qt5/QtWidgets/QHeaderView \
+		/usr/include/qt5/QtWidgets/qheaderview.h \
+		/usr/include/qt5/QtWidgets/qabstractitemview.h \
+		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
+		/usr/include/qt5/QtCore/qitemselectionmodel.h \
+		/usr/include/qt5/QtWidgets/qabstractitemdelegate.h \
+		/usr/include/qt5/QtWidgets/qstyleoption.h \
+		/usr/include/qt5/QtWidgets/qabstractspinbox.h \
+		/usr/include/qt5/QtGui/qvalidator.h \
+		/usr/include/qt5/QtCore/qregularexpression.h \
+		/usr/include/qt5/QtWidgets/qslider.h \
+		/usr/include/qt5/QtWidgets/qabstractslider.h \
+		/usr/include/qt5/QtWidgets/qstyle.h \
+		/usr/include/qt5/QtWidgets/qtabbar.h \
+		/usr/include/qt5/QtWidgets/qrubberband.h \
+		/usr/include/qt5/QtWidgets/QLabel \
+		/usr/include/qt5/QtWidgets/qlabel.h \
+		/usr/include/qt5/QtWidgets/QLineEdit \
+		/usr/include/qt5/QtWidgets/qlineedit.h \
+		/usr/include/qt5/QtGui/qtextcursor.h \
+		/usr/include/qt5/QtGui/qtextformat.h \
+		/usr/include/qt5/QtGui/qpen.h \
+		/usr/include/qt5/QtGui/qtextoption.h \
+		/usr/include/qt5/QtWidgets/QListView \
+		/usr/include/qt5/QtWidgets/qlistview.h \
+		/usr/include/qt5/QtWidgets/QMenuBar \
+		/usr/include/qt5/QtWidgets/qmenubar.h \
+		/usr/include/qt5/QtWidgets/qmenu.h \
+		/usr/include/qt5/QtWidgets/QPushButton \
+		/usr/include/qt5/QtWidgets/qpushbutton.h \
+		/usr/include/qt5/QtWidgets/qabstractbutton.h \
+		/usr/include/qt5/QtWidgets/QSpacerItem \
+		/usr/include/qt5/QtWidgets/QStatusBar \
+		/usr/include/qt5/QtWidgets/qstatusbar.h \
+		/usr/include/qt5/QtWidgets/QToolBar \
+		/usr/include/qt5/QtWidgets/qtoolbar.h \
+		/usr/include/qt5/QtWidgets/QVBoxLayout \
+		/usr/include/qt5/QtWidgets/QWidget \
 		../Mia/Model/dicevalidator.h \
 		/usr/include/qt5/QtCore/QObject \
 		/usr/include/qt5/QtGui/QValidator \
-		/usr/include/qt5/QtGui/qvalidator.h \
-		/usr/include/qt5/QtCore/qregularexpression.h \
 		/usr/include/qt5/QtCore/QtDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../Mia/mainwindow.cpp
 
 control.o: ../Mia/Control/control.cpp ../Mia/Control/control.h \
-		ui_mainwindow.h \
 		/usr/include/qt5/QtCore/QDebug \
 		/usr/include/qt5/QtCore/qdebug.h \
 		/usr/include/qt5/QtCore/qalgorithms.h \
@@ -1006,6 +1064,9 @@ dicevalidator.o: ../Mia/Model/dicevalidator.cpp ../Mia/Model/dicevalidator.h \
 
 player.o: ../Mia/Model/player.cpp ../Mia/Model/player.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o player.o ../Mia/Model/player.cpp
+
+statistic.o: ../Mia/Control/statistic.cpp ../Mia/Control/statistic.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o statistic.o ../Mia/Control/statistic.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
