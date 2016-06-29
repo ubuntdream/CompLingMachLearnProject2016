@@ -30,4 +30,6 @@
 
 *.pro.user
 *.pro.user.*
+Mia/Mia.pro.user
+Mia/Mia.pro.user.*
 build-Mia-Desktop-Debug/*
