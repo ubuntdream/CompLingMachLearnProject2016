@@ -15,6 +15,7 @@ protected:
                       61,61,62,62,63,63,64,64,65,65,
                       11,22,33,44,55,66,21,21};
     int getRandomGratherValue(int v);
+    int getProbertyRollGrather(int v);
 public:
     Statistic();
     ~Statistic();

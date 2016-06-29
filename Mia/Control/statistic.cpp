@@ -20,4 +20,19 @@ int Statistic::getRandomGratherValue(int v){
           return mValue[1+i+(rand() %(35-i))];
       }
   }
+  return mValue[rand() %36];
+}
+
+// Berechnet die Wahrscheinlichkeit zurück, dass ein größerer Wert gewürfelt wird
+int Statistic::getProbertyRollGrather(int v){
+    for(int i = 0; i < 36; i++){
+        if(mValue[i]== v){
+            if(i < 28 || i >=34){
+                return 34-i;
+            }else{
+                return 35-i;
+            }
+        }
+    }
+    return 36;
 }
