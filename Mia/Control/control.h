@@ -37,13 +37,15 @@ public:
     bool isNewGame() const;
     void setNewGame();
     Value getLastValue() const;
+    Value getNewValue() const;
+    Value getOnlyRandomValue()const;
     void setCallValue(int v);
     bool Call_is_correct(int v);
     Player GetPlayer(int i) const;
     int GetActivPlayerID() const;
     int GetLastPlayerID() ;
     void NextPlayer();
-    void look_at_last_Player();
+    QString look_at_last_Player();
 };
 
 #endif // CONTROL_H

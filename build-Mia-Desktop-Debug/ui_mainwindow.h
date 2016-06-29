@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -18,12 +18,12 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
-#include <QtWidgets/QListView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -42,7 +42,6 @@ public:
     QLabel *label;
     QLabel *label_2;
     QLabel *label_3;
-    QListView *lv_Log;
     QLabel *label_4;
     QLabel *label_11;
     QLabel *label_12;
@@ -71,6 +70,7 @@ public:
     QLabel *Player_1_Win;
     QLabel *Player_2_Win;
     QLabel *Player_3_Win;
+    QTextEdit *txfld_log;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -110,9 +110,6 @@ public:
         label_3 = new QLabel(centralWidget);
         label_3->setObjectName(QStringLiteral("label_3"));
         label_3->setGeometry(QRect(450, 110, 64, 15));
-        lv_Log = new QListView(centralWidget);
-        lv_Log->setObjectName(QStringLiteral("lv_Log"));
-        lv_Log->setGeometry(QRect(10, 30, 391, 451));
         label_4 = new QLabel(centralWidget);
         label_4->setObjectName(QStringLiteral("label_4"));
         label_4->setGeometry(QRect(20, 0, 111, 31));
@@ -257,10 +254,14 @@ public:
 
         horizontalLayout->addLayout(verticalLayout_4);
 
+        txfld_log = new QTextEdit(centralWidget);
+        txfld_log->setObjectName(QStringLiteral("txfld_log"));
+        txfld_log->setGeometry(QRect(10, 30, 391, 431));
+        txfld_log->setAutoFillBackground(false);
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 768, 25));
+        menuBar->setGeometry(QRect(0, 0, 768, 20));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -282,7 +283,7 @@ public:
         lbl_FormerDiceValue->setText(QString());
         btn_CallValue->setText(QApplication::translate("MainWindow", "Call", 0));
         label->setText(QApplication::translate("MainWindow", "Former/called value", 0));
-        label_2->setText(QApplication::translate("MainWindow", "Actual rolled value", 0));
+        label_2->setText(QApplication::translate("MainWindow", "Actual called value", 0));
         label_3->setText(QApplication::translate("MainWindow", "Call input", 0));
         label_4->setText(QApplication::translate("MainWindow", "Log", 0));
         label_11->setText(QApplication::translate("MainWindow", "Statistics", 0));

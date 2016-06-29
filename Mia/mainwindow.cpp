@@ -13,12 +13,9 @@ MainWindow::MainWindow(QWidget *parent) :
     mControl = new Control(3);
     ui->setupUi(this);
     ui->txfld_CallValueInput->setValidator(new DiceValidator(this));
-    model = new QStringListModel(this);
 
-    QStringList list;
-    list << "Welcome to mia"<<"Enjoy your game";
-    model->setStringList(list);
-    ui->lv_Log->setModel(model);
+    appendToLogView("Welcome to the game mia");
+    appendToLogView("Roll the dice and figure out if you will say the truth or lie to the next player");
     ui->btn_RollDice->setEnabled(true);
     ui->btn_CallValue->setEnabled(false);
     ui->btn_ShowResult->setEnabled(false);
@@ -34,6 +31,9 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::appendToLogView(QString s){
+    ui->txfld_log->append(s);
+}
 
 void MainWindow::on_btn_RollDice_clicked()
 {
@@ -50,14 +50,23 @@ void MainWindow::on_btn_CallValue_clicked()
 {
     QString s  = ui->txfld_CallValueInput->text();
     int val = s.toInt();
+
+    //Get Some informations
+    int apid = mControl->GetActivPlayerID();
+    Value diceval = mControl->getOnlyRandomValue();
+
     if(val > 10 && mControl->Call_is_correct(val)){
         mControl->setCallValue(val);
         toggleRollCall();
+
         ui->lbl_ActualDiceValue->setText(s);
         ui->txfld_CallValueInput->setStyleSheet("QLineEdit { background-color: white}");
         ui->txfld_CallValueInput->setText("");
+
+        appendToLogView("Player "+QString::number(apid)+": Called "+mControl->getNewValue().toQString()+"(trueth: "+diceval.toQString()+")");
+
         mControl->NextPlayer();
-        setActivPlayer();
+        setActivPlayer(); // nur UI
     }else{
         //Nicht schön, aber so sieht man, dass eingabe Fasch war
         ui->txfld_CallValueInput->setStyleSheet("QLineEdit { background-color: red}");
@@ -111,7 +120,8 @@ void MainWindow::setActivPlayer(){
 
 void MainWindow::on_btn_ShowResult_clicked()
 {
-    mControl->look_at_last_Player();
+    QString s = mControl->look_at_last_Player();
+    appendToLogView(s);
     setPlayerValue();
     mControl->setNewGame();
     ui->btn_ShowResult->setEnabled(false);

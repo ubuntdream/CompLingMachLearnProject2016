@@ -50,6 +50,14 @@ void Control::setNewGame(){
 Value Control::getLastValue() const{
     return mlastValue;
 }
+//Return the actual Value
+Value Control::getNewValue() const{
+    return(mNewValue);
+}
+
+Value Control::getOnlyRandomValue()const{
+    return(mRandomValue);
+}
 
 // Set the Vallue which was called
 /*
@@ -101,20 +109,31 @@ void Control::NextPlayer(){
 
 // Behandelt das Event, dass die Würfel vom nächsten aufgedeckt werden, also der Lüge bezichtigt
 // Muss noch getestet werden!
-void Control::look_at_last_Player(){
+QString Control::look_at_last_Player(){
+    int apid = GetActivPlayerID();
+    int fpid = GetLastPlayerID();
+    int loose=1;
+    QString s = "Player "+ QString::number(apid)+" say Player "+QString::number(fpid)+" lies.\n\t";
+
     if(mNewValue.equal(mRandomValue) || mRandomValue.greater_than(mNewValue)){
         if(mRandomValue.mia){
-            mPlayers[mActivPlayerID].looLife(2);
+            loose=2;
         }else{
-            mPlayers[mActivPlayerID].looLife(1);
+            loose=1;
         }
+        s=s+"Wrong! You loose "+ QString::number(loose)+" life(s)!";
+        mPlayers[mActivPlayerID].looLife(loose);
         mPlayers[GetLastPlayerID()].addWin();
     }else{
         if(mNewValue.mia){
-            mPlayers[GetLastPlayerID()].looLife(2);
+            loose=2;
         }else{
-            mPlayers[GetLastPlayerID()].looLife(1);
+            loose=1;
         }
+        s=s+"Right! He loose "+ QString::number(loose)+" life(s)!\nYou win!";
+
+        mPlayers[GetLastPlayerID()].looLife(loose);
         mPlayers[mActivPlayerID].addWin();
     }
+    return(s);
 }
