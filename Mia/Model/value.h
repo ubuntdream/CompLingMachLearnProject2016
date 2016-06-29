@@ -18,15 +18,20 @@ public:
 
     void set(int lowval, int highval);
     void set(Value v);
+    void set(int v);
 
     bool equal(int lowval, int highval);
     bool equal(Value v);
+    bool equal(int v);
+
 
     bool greater_than(int lowval, int highval);
     bool greater_than(Value v);
+    bool greater_than(int v);
 
     bool less_than(int lowval, int highval);
     bool less_than(Value v);
+    bool less_than(int v);
 
     int toInt();
     QString toQString();

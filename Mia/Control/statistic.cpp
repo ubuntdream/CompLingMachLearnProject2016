@@ -1,20 +1,11 @@
 #include "statistic.h"
 
 #include <iostream>
+#include "Model/value.h"
 
 Statistic::Statistic()
 {
     std::srand(std::time(NULL));
-
-    for(int i = 0; i < 36; i++){
-        std::cout<<mValue[i]<<" ";
-    }
-    std::cout<<std::endl;
-
-    for(int i = 0; i < 36; i++){
-        std::cout<<getRandomGratherValue(31)<<" ";
-    }
-    std::cout<<std::endl;
 }
 
 Statistic::~Statistic()

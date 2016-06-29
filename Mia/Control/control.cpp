@@ -60,11 +60,8 @@ Value Control::getLastValue() const{
  * Behandeln das Ereigenis das Mia ausgesprochen wurde fehlt noch
  */
 void Control::setCallValue(int v){
-    int lowval = v%10;
-    int highval = v/10;
-
     mlastValue.set(mNewValue);
-    mNewValue.set(lowval,highval);
+    mNewValue.set(v);
     mStartGame = false;
 }
 
