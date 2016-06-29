@@ -31,10 +31,10 @@ private:
     // Verknüpfung zur GUI(ui) und Control
     Ui::MainWindow *ui;
     Control *mControl;
-    QStringListModel *model;
 
     void toggleRollCall();
     void setActivPlayer();
+    void appendToLogView(QString s);
 };
 
 #endif // MAINWINDOW_H

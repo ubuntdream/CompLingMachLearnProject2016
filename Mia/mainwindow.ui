@@ -111,7 +111,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Actual rolled value</string>
+     <string>Actual called value</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
@@ -125,16 +125,6 @@
     </property>
     <property name="text">
      <string>Call input</string>
-    </property>
-   </widget>
-   <widget class="QListView" name="lv_Log">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>391</width>
-      <height>451</height>
-     </rect>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
@@ -394,6 +384,19 @@
      </item>
     </layout>
    </widget>
+   <widget class="QTextEdit" name="txfld_log">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>391</width>
+      <height>431</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -401,7 +404,7 @@
      <x>0</x>
      <y>0</y>
      <width>768</width>
-     <height>25</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>

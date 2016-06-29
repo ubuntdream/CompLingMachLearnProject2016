@@ -30,4 +30,4 @@
 
 *.pro.user
 *.pro.user.*
-build-Mia-Desktop-Debug/*
+build-Mia-Desktop-Debug/
