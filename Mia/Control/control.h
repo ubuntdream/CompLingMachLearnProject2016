@@ -10,6 +10,7 @@
 #include "Model/value.h"
 #include "Model/player.h"
 
+#include "Control/statistic.h"
 
 class Control
 {
@@ -28,6 +29,8 @@ private:
     std::vector<Player> mPlayers;
     // Speicherung der ID, welcher Spieler aktuell an der Reihe ist
     int mActivPlayerID;
+    //Zugriff auf die Einfache Statistisch basierte KI
+    Statistic mStatisticKI;
 
 public:
     Control(int anz);

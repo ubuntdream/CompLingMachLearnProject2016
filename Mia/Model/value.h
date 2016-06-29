@@ -7,6 +7,7 @@ class Value
 {
 public:
     Value(int lowval, int highval);
+    Value(int v);
     Value();
     ~Value();
 

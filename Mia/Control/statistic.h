@@ -3,6 +3,7 @@
 
 #include <ctime>
 #include <cstdlib>
+#include "Model/value.h"
 
 //Dise Klasse beinhaltet Statistiken bei theoretischen Verteilung
 class Statistic
@@ -19,6 +20,8 @@ protected:
 public:
     Statistic();
     ~Statistic();
+    bool look_at_dice(Value last, Value call);
+    int getCall(Value last, Value rand);
 };
 
 #endif // STATISTIC_H

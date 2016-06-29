@@ -59,7 +59,6 @@ void MainWindow::on_btn_CallValue_clicked()
         mControl->setCallValue(val);
         toggleRollCall();
 
-        ui->lbl_ActualDiceValue->setText(s);
         ui->txfld_CallValueInput->setStyleSheet("QLineEdit { background-color: white}");
         ui->txfld_CallValueInput->setText("");
 
@@ -105,6 +104,9 @@ void MainWindow::setPlayerValue(){
 
 // Markiert, welcher Spieler aktuell am Zug ist
 void MainWindow::setActivPlayer(){
+    ui->lbl_ActualDiceValue->setText(mControl->getNewValue().toQString());
+    setPlayerValue();
+
     int i = mControl->GetActivPlayerID();
     ui->Player_1_Name->setStyleSheet("QLabel { background-color : white};");
     ui->Player_2_Name->setStyleSheet("QLabel { background-color : white};");
@@ -122,7 +124,6 @@ void MainWindow::on_btn_ShowResult_clicked()
 {
     QString s = mControl->look_at_last_Player();
     appendToLogView(s);
-    setPlayerValue();
     mControl->setNewGame();
     ui->btn_ShowResult->setEnabled(false);
 }

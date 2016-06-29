@@ -3,9 +3,14 @@
 #include <algorithm>
 Value::Value()
 {
-    Value(0,0);
+    Value(0,1);
 }
 
+Value::Value(int v){
+    int l = v%10;
+    int h = v/10;
+    Value(l,h);
+}
 
 Value::Value(int a, int b)
 {

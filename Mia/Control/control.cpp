@@ -102,10 +102,30 @@ int Control::GetLastPlayerID(){
 // Weitersetzen der ID des anktuellen Spielers
 void Control::NextPlayer(){
     mActivPlayerID = (mActivPlayerID+1)%mPlayers.size();
+    if(mActivPlayerID == 1){
+        //Hier spielt die statistische KI
+        if(mStartGame){
+            std::cout<<"Die st. KI startet das Spiel"<<std::endl;
+            setCallValue(getRandomValue().toInt());
+            NextPlayer();
+        }else{
+            std::cout<<"Die st. KI spielt";
+            if(mStatisticKI.look_at_dice(mlastValue,mNewValue)){
+                std::cout<<" und deckt auf"<<std::endl;
+                look_at_last_Player();
+            }else{
+                Value r = getRandomValue();
+                int  c = mStatisticKI.getCall(mlastValue,r);
+                std::cout<<" und Würfelt: "<<mlastValue.toInt()<<" "<<mRandomValue.toInt()<<" "<<c<<std::endl;
+                setCallValue(c);
+            }
+            NextPlayer();
+        }
+    }
 }
 
 // Behandelt das Event, dass die Würfel vom nächsten aufgedeckt werden, also der Lüge bezichtigt
-// Muss noch getestet werden!
+// Muss noch getestet werden, ob korrekte Punktevergabe und nächster Spieler!
 QString Control::look_at_last_Player(){
     int apid = GetActivPlayerID();
     int fpid = GetLastPlayerID();

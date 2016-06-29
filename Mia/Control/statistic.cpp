@@ -1,7 +1,6 @@
 #include "statistic.h"
 
 #include <iostream>
-#include "Model/value.h"
 
 Statistic::Statistic()
 {
@@ -36,3 +35,25 @@ int Statistic::getProbertyRollGrather(int v){
     }
     return 36;
 }
+
+// Entscheidet, ob die Würfel aufgedekt werden sollen
+/*
+ * Ist die Wahrscheinlichkeit der Lüge höher, dann decke auf,
+ * Entsheidung anhand der Wahrscehinlichkeit einen größeren Wert als
+ * der Letzte Wert zu werfen
+*/
+bool Statistic::look_at_dice(Value last, Value call){
+    return 18>getProbertyRollGrather(call.toInt());
+}
+
+// Gibt den passenden nächsten Call-Wert
+/* Ist der zufällig gewürfelte Wert passend, gebe diesen zurück
+ * ist nicht passend, wird zufällig ein größerer bestimmt
+ */
+ int Statistic::getCall(Value last, Value rand){
+     if(rand.greater_than(last)){
+         return rand.toInt();
+     }else{
+         return getRandomGratherValue(last.toInt());
+     }
+ }
