@@ -9,6 +9,7 @@
 
 #include "Model/value.h"
 #include "Model/player.h"
+#include "primitiveki.h"
 
 #include "Control/statistic.h"
 
@@ -29,8 +30,11 @@ private:
     std::vector<Player> mPlayers;
     // Speicherung der ID, welcher Spieler aktuell an der Reihe ist
     int mActivPlayerID;
+
     //Zugriff auf die Einfache Statistisch basierte KI
     Statistic mStatisticKI;
+    //Zugriff auf KI, mehr als statistisch aber noch primitiv
+    PrimitiveKI mPrimitiveKI;
 
 public:
     Control(int anz);

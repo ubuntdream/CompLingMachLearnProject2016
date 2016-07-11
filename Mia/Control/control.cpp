@@ -102,7 +102,7 @@ int Control::GetLastPlayerID(){
 // Weitersetzen der ID des anktuellen Spielers
 void Control::NextPlayer(){
     mActivPlayerID = (mActivPlayerID+1)%mPlayers.size();
-    if(mActivPlayerID == 1){
+    if(mActivPlayerID == 2){
         //Hier spielt die statistische KI
         if(mStartGame){
             std::cout<<"Die st. KI startet das Spiel"<<std::endl;
@@ -116,6 +116,27 @@ void Control::NextPlayer(){
             }else{
                 Value r = getRandomValue();
                 int  c = mStatisticKI.getCall(mlastValue,r);
+                std::cout<<" und Würfelt: "<<mlastValue.toInt()<<" "<<mRandomValue.toInt()<<" "<<c<<std::endl;
+                setCallValue(c);
+            }
+            NextPlayer();
+        }
+    }
+    //ich hab zum test die ids vertauscht
+    else if(mActivPlayerID == 1){
+        //Hier spielt die primitive KI
+        if(mStartGame){
+            std::cout<<"Die primitive KI startet das Spiel"<<std::endl;
+            setCallValue(getRandomValue().toInt());
+            NextPlayer();
+        }else{
+            std::cout<<"Die primitive KI spielt";
+            if(mPrimitiveKI.look_at_dice(mlastValue,mNewValue)){
+                std::cout<<" und deckt auf"<<std::endl;
+                look_at_last_Player();
+            }else{
+                Value r = getRandomValue();
+                int  c =mPrimitiveKI.getCall(mlastValue,r);
                 std::cout<<" und Würfelt: "<<mlastValue.toInt()<<" "<<mRandomValue.toInt()<<" "<<c<<std::endl;
                 setCallValue(c);
             }
@@ -152,5 +173,7 @@ QString Control::look_at_last_Player(){
         mPlayers[GetLastPlayerID()].looLife(loose);
         mPlayers[mActivPlayerID].addWin();
     }
+    //Kann das sein, dass das hier noch gefehlt hat? Bei 21 haben immer beide KIs aufgedeckt... seltsam
+    mStartGame = true;
     return(s);
 }

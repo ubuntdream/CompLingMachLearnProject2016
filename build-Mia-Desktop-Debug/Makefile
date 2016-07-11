@@ -467,6 +467,7 @@ compiler_moc_header_clean:
 moc_mainwindow.cpp: ../Mia/Control/control.h \
 		../Mia/Model/value.h \
 		../Mia/Model/player.h \
+		../Mia/Control/primitiveki.h \
 		../Mia/Control/statistic.h \
 		../Mia/mainwindow.h \
 		/usr/lib/qt/bin/moc
@@ -499,6 +500,7 @@ main.o: ../Mia/main.cpp ../Mia/mainwindow.h \
 		../Mia/Control/control.h \
 		../Mia/Model/value.h \
 		../Mia/Model/player.h \
+		../Mia/Control/primitiveki.h \
 		../Mia/Control/statistic.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Mia/main.cpp
 
@@ -506,6 +508,7 @@ mainwindow.o: ../Mia/mainwindow.cpp ../Mia/mainwindow.h \
 		../Mia/Control/control.h \
 		../Mia/Model/value.h \
 		../Mia/Model/player.h \
+		../Mia/Control/primitiveki.h \
 		../Mia/Control/statistic.h \
 		ui_mainwindow.h \
 		../Mia/Model/dicevalidator.h
@@ -514,6 +517,7 @@ mainwindow.o: ../Mia/mainwindow.cpp ../Mia/mainwindow.h \
 control.o: ../Mia/Control/control.cpp ../Mia/Control/control.h \
 		../Mia/Model/value.h \
 		../Mia/Model/player.h \
+		../Mia/Control/primitiveki.h \
 		../Mia/Control/statistic.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o control.o ../Mia/Control/control.cpp
 
@@ -530,7 +534,8 @@ statistic.o: ../Mia/Control/statistic.cpp ../Mia/Control/statistic.h \
 		../Mia/Model/value.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o statistic.o ../Mia/Control/statistic.cpp
 
-primitiveki.o: ../Mia/Control/primitiveki.cpp ../Mia/Control/primitiveki.h
+primitiveki.o: ../Mia/Control/primitiveki.cpp ../Mia/Control/primitiveki.h \
+		../Mia/Model/value.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o primitiveki.o ../Mia/Control/primitiveki.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
