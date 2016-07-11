@@ -123,14 +123,14 @@ void Control::NextPlayer(){
         }
     }
     //ich hab zum test die ids vertauscht
-    else if(mActivPlayerID == 1){
+    else if(mActivPlayerID == 1 || mActivPlayerID == 0){
         //Hier spielt die primitive KI
         if(mStartGame){
             std::cout<<"Die primitive KI startet das Spiel"<<std::endl;
             setCallValue(getRandomValue().toInt());
             NextPlayer();
         }else{
-            std::cout<<"Die primitive KI spielt";
+            std::cout<<"Player"<< mActivPlayerID<<": Die primitive KI spielt";
             if(mPrimitiveKI.look_at_dice(mlastValue,mNewValue)){
                 std::cout<<" und deckt auf"<<std::endl;
                 look_at_last_Player();
