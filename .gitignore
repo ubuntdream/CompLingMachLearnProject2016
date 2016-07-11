@@ -28,10 +28,9 @@
 *.out
 *.app
 
+# Project Files
 *.pro.user
-*.pro.user.*
 Mia/
-Mia.pro*
+Mia.pro
 Mia/Mia.pro.user
-Mia/Mia.pro.user.*
 build-Mia-Desktop-Debug/*

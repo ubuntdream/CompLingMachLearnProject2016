@@ -19,13 +19,15 @@ SOURCES += main.cpp\
     Model/value.cpp \
     Model/dicevalidator.cpp \
     Model/player.cpp \
-    Control/statistic.cpp
+    Control/statistic.cpp \
+    Control/primitiveki.cpp
 
 HEADERS  += mainwindow.h \
     Control/control.h \
     Model/value.h \
     Model/dicevalidator.h \
     Model/player.h \
-    Control/statistic.h
+    Control/statistic.h \
+    Control/primitiveki.h
 
 FORMS    += mainwindow.ui
