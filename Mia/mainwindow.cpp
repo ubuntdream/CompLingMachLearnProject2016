@@ -104,11 +104,7 @@ void MainWindow::setPlayerValue(){
 
 // Markiert, welcher Spieler aktuell am Zug ist
 void MainWindow::setActivPlayer(){
-    if(mControl->isNewGame()){
-        ui->lbl_ActualDiceValue->setText("");
-    }else{
-        ui->lbl_ActualDiceValue->setText(mControl->getNewValue().toQString());
-    }
+    ui->lbl_ActualDiceValue->setText(mControl->getNewValue().toQString());
     setPlayerValue();
 
     int i = mControl->GetActivPlayerID();
