@@ -5,6 +5,9 @@
 
 #include "Control/statistic.h"
 
+#include <QFile>
+#include <QTextStream>
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -126,4 +129,51 @@ void MainWindow::on_btn_ShowResult_clicked()
     appendToLogView(s);
     mControl->setNewGame();
     ui->btn_ShowResult->setEnabled(false);
+}
+
+// Erstellt den automatischen durchlauf, dabei wird die Anzahl der Spiele aud der GIU entnommen
+// Speichere alle Werte in save.txt
+void MainWindow::on_Auto_Start_Button_clicked()
+{
+    int MaxStep = ui->Auto_Stepmax->text().toInt();
+    QFile parameterFile("save.txt");
+    if(MaxStep>0 &&parameterFile.open(QIODevice::WriteOnly | QFile::Append))
+    {
+        QTextStream data(&parameterFile);
+        // Aufruf des spieles
+        for(int count = 0; count < MaxStep; count++){
+            bool newGame = mControl->isNewGame();
+            bool look = false;
+                //Hier spielt die statistische KI
+                if(newGame){
+                    // Bei spielbeginn sagt sie immer die Warheit
+                    mControl->setCallValue(mControl->getRandomValue().toInt());
+                }else{
+                    // Entscheidet ob aufgedeckt werden soll
+                    if(mStatisticKI.look_at_dice(mControl->getLastValue(),mControl->getNewValue())){
+                        mControl->look_at_last_Player();
+                        look = true;
+                    }else{
+                        Value r = mControl->getRandomValue();
+                        //Ermittelt den Call-Wert
+                        int  c = mStatisticKI.getCall(mControl->getLastValue(),r);
+                        mControl->setCallValue(c);
+                    }
+                }
+            // Speicherung der Spieldaten
+            data << count << " " <<
+                    mControl->GetActivPlayerID() << " " <<
+                    mControl->GetLastPlayerID() << " " <<
+                    newGame << " " <<
+                    mControl->getOnlyRandomValue().toQString()<<" "<<
+                    mControl->getNewValue().toQString() << " "<<
+                    mControl->getLastValue().toQString() << " "<<
+                    look <<"\n";
+            mControl->NextPlayer();
+        }
+        parameterFile.close();
+        appendToLogView("Autogenerator beendet");
+    }else{
+        appendToLogView("Fehler: Anzahl falsch oder File Fehler");
+    }
 }

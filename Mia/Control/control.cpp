@@ -102,6 +102,7 @@ int Control::GetLastPlayerID(){
 // Weitersetzen der ID des anktuellen Spielers
 void Control::NextPlayer(){
     mActivPlayerID = (mActivPlayerID+1)%mPlayers.size();
+    /*
     if(mActivPlayerID == 2){
         //Hier spielt die statistische KI
         if(mStartGame){
@@ -121,28 +122,7 @@ void Control::NextPlayer(){
             }
             NextPlayer();
         }
-    }
-    //ich hab zum test die ids vertauscht
-    else if(mActivPlayerID == 1 || mActivPlayerID == 0){
-        //Hier spielt die primitive KI
-        if(mStartGame){
-            std::cout<<"Die primitive KI startet das Spiel"<<std::endl;
-            setCallValue(getRandomValue().toInt());
-            NextPlayer();
-        }else{
-            std::cout<<"Player"<< mActivPlayerID<<": Die primitive KI spielt";
-            if(mPrimitiveKI.look_at_dice(mlastValue,mNewValue)){
-                std::cout<<" und deckt auf"<<std::endl;
-                look_at_last_Player();
-            }else{
-                Value r = getRandomValue();
-                int  c =mPrimitiveKI.getCall(mlastValue,r);
-                std::cout<<" und Würfelt: "<<mlastValue.toInt()<<" "<<mRandomValue.toInt()<<" "<<c<<std::endl;
-                setCallValue(c);
-            }
-            NextPlayer();
-        }
-    }
+    }*/
 }
 
 // Behandelt das Event, dass die Würfel vom nächsten aufgedeckt werden, also der Lüge bezichtigt

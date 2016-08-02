@@ -6,6 +6,8 @@
 #include "Control/control.h"
 #include "QStringListModel"
 
+#include "Control/statistic.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -27,6 +29,8 @@ private slots:
 
     void on_btn_ShowResult_clicked();
 
+    void on_Auto_Start_Button_clicked();
+
 private:
     // Verknüpfung zur GUI(ui) und Control
     Ui::MainWindow *ui;
@@ -35,6 +39,9 @@ private:
     void toggleRollCall();
     void setActivPlayer();
     void appendToLogView(QString s);
+
+    //Zugriff auf die Einfache Statistisch basierte KI
+    Statistic mStatisticKI;
 };
 
 #endif // MAINWINDOW_H
