@@ -8,8 +8,6 @@
 #include <QFile>
 #include <QTextStream>
 
-#include <iostream>
-
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -165,7 +163,7 @@ void MainWindow::on_Auto_Start_Button_clicked()
                         mControl->NextPlayer();
                     }
                 }
-            // Speicherung der Spieldaten
+            // Speicherung der Spieldaten in File
             data << count << " " <<
                     acPlayerID << " " <<
                     laPlayerID << " " <<

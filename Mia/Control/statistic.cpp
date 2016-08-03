@@ -1,7 +1,5 @@
 #include "statistic.h"
 
-#include <iostream>
-
 Statistic::Statistic()
 {
     std::srand(std::time(NULL));

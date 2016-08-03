@@ -55,6 +55,7 @@ Value Control::getNewValue() const{
     return(mNewValue);
 }
 
+// gibt den Zufällig bestimmten Wert zurück
 Value Control::getOnlyRandomValue()const{
     return(mRandomValue);
 }
@@ -102,27 +103,6 @@ int Control::GetLastPlayerID(){
 // Weitersetzen der ID des anktuellen Spielers
 void Control::NextPlayer(){
     mActivPlayerID = (mActivPlayerID+1)%mPlayers.size();
-    /*
-    if(mActivPlayerID == 2){
-        //Hier spielt die statistische KI
-        if(mStartGame){
-            std::cout<<"Die st. KI startet das Spiel"<<std::endl;
-            setCallValue(getRandomValue().toInt());
-            NextPlayer();
-        }else{
-            std::cout<<"Die st. KI spielt";
-            if(mStatisticKI.look_at_dice(mlastValue,mNewValue)){
-                std::cout<<" und deckt auf"<<std::endl;
-                look_at_last_Player();
-            }else{
-                Value r = getRandomValue();
-                int  c = mStatisticKI.getCall(mlastValue,r);
-                std::cout<<" und Würfelt: "<<mlastValue.toInt()<<" "<<mRandomValue.toInt()<<" "<<c<<std::endl;
-                setCallValue(c);
-            }
-            NextPlayer();
-        }
-    }*/
 }
 void Control::PreviousPlayer(){
     if(mActivPlayerID > 0){
@@ -134,6 +114,7 @@ void Control::PreviousPlayer(){
 
 // Behandelt das Event, dass die Würfel vom nächsten aufgedeckt werden, also der Lüge bezichtigt
 // Muss noch getestet werden, ob korrekte Punktevergabe und nächster Spieler!
+// Lügt der Vorgänger, so wird die ID auf diesen zurück gestellt, um 1 verringert
 QString Control::look_at_last_Player(){
     int apid = GetActivPlayerID();
     int fpid = GetLastPlayerID();

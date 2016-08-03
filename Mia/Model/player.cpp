@@ -1,5 +1,6 @@
 #include "player.h"
 
+// Defauld Startwert
 Player::Player()
 {
  mLifes = 10;

@@ -397,10 +397,10 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>430</x>
+      <x>460</x>
       <y>400</y>
       <width>245</width>
       <height>54</height>

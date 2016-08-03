@@ -17,6 +17,7 @@ public:
         if (input == "" || input == "1" || input == "2" || input == "3" || input == "4" || input == "5" || input == "6"){
             res= Intermediate;
         }
+        //Alle möglichen Kombinationen
         else if(input == "11"
                 || input == "21" || input == "22"
                 || input == "31" || input == "32" || input == "33"
