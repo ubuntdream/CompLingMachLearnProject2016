@@ -44,6 +44,7 @@ public:
     int GetActivPlayerID() const;
     int GetLastPlayerID() ;
     void NextPlayer();
+    void PreviousPlayer();
     QString look_at_last_Player();
 };
 

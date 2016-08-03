@@ -105,3 +105,8 @@ int Value::toInt(){
 QString Value::toQString(){
     return QString::number(this->toInt());
 }
+
+//Setzt es auf einen "Neutralen" kleinen Wert
+void Value::clear(){
+    set(0,1);
+}

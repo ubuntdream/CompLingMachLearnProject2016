@@ -7,7 +7,7 @@
 
 Control::Control(int anz)
 {
-    std::srand(std::time(NULL));
+    std::srand(42);//nun gibt es pseudozufallszahlen std::time(NULL));
     mStartGame = true;
     mNewValue = Value();
     mRandomValue = Value();
@@ -124,6 +124,13 @@ void Control::NextPlayer(){
         }
     }*/
 }
+void Control::PreviousPlayer(){
+    if(mActivPlayerID > 0){
+    mActivPlayerID = mActivPlayerID-1;
+    }else{
+        mActivPlayerID = mPlayers.size()-1;
+    }
+}
 
 // Behandelt das Event, dass die Würfel vom nächsten aufgedeckt werden, also der Lüge bezichtigt
 // Muss noch getestet werden, ob korrekte Punktevergabe und nächster Spieler!
@@ -152,8 +159,10 @@ QString Control::look_at_last_Player(){
 
         mPlayers[GetLastPlayerID()].looLife(loose);
         mPlayers[mActivPlayerID].addWin();
+        PreviousPlayer();
+
     }
     //Kann das sein, dass das hier noch gefehlt hat? Bei 21 haben immer beide KIs aufgedeckt... seltsam
-    mStartGame = true;
+    setNewGame();
     return(s);
 }

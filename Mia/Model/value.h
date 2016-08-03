@@ -37,6 +37,7 @@ public:
     int toInt();
     QString toQString();
 
+    void clear();
 };
 
 #endif // VALUE_H

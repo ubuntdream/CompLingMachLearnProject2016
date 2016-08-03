@@ -8,6 +8,7 @@
 #include <QFile>
 #include <QTextStream>
 
+#include <iostream>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -127,8 +128,8 @@ void MainWindow::on_btn_ShowResult_clicked()
 {
     QString s = mControl->look_at_last_Player();
     appendToLogView(s);
-    mControl->setNewGame();
     ui->btn_ShowResult->setEnabled(false);
+    setActivPlayer(); // nur UI
 }
 
 // Erstellt den automatischen durchlauf, dabei wird die Anzahl der Spiele aud der GIU entnommen
@@ -144,10 +145,13 @@ void MainWindow::on_Auto_Start_Button_clicked()
         for(int count = 0; count < MaxStep; count++){
             bool newGame = mControl->isNewGame();
             bool look = false;
+            int acPlayerID = mControl->GetActivPlayerID();
+            int laPlayerID = mControl->GetLastPlayerID();
                 //Hier spielt die statistische KI
                 if(newGame){
                     // Bei spielbeginn sagt sie immer die Warheit
                     mControl->setCallValue(mControl->getRandomValue().toInt());
+                    mControl->NextPlayer();
                 }else{
                     // Entscheidet ob aufgedeckt werden soll
                     if(mStatisticKI.look_at_dice(mControl->getLastValue(),mControl->getNewValue())){
@@ -158,18 +162,18 @@ void MainWindow::on_Auto_Start_Button_clicked()
                         //Ermittelt den Call-Wert
                         int  c = mStatisticKI.getCall(mControl->getLastValue(),r);
                         mControl->setCallValue(c);
+                        mControl->NextPlayer();
                     }
                 }
             // Speicherung der Spieldaten
             data << count << " " <<
-                    mControl->GetActivPlayerID() << " " <<
-                    mControl->GetLastPlayerID() << " " <<
+                    acPlayerID << " " <<
+                    laPlayerID << " " <<
                     newGame << " " <<
-                    mControl->getOnlyRandomValue().toQString()<<" "<<
                     mControl->getNewValue().toQString() << " "<<
+                    mControl->getOnlyRandomValue().toQString()<<" "<<
                     mControl->getLastValue().toQString() << " "<<
                     look <<"\n";
-            mControl->NextPlayer();
         }
         parameterFile.close();
         appendToLogView("Autogenerator beendet");
