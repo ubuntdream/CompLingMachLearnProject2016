@@ -1,6 +1,6 @@
 #include "statistic.h"
 
-Statistic::Statistic()
+Statistic::Statistic() : KI()
 {
     std::srand(std::time(NULL));
 }
@@ -55,3 +55,11 @@ bool Statistic::look_at_dice(Value last, Value call){
          return getRandomGratherValue(last.toInt());
      }
  }
+
+// Gibt den Wert beim ersten Spiel aus
+/*
+ * Es wird immer die Wahrheit gesagt
+ */
+int Statistic::getStartCall(Value v){
+    return v.toInt();
+}

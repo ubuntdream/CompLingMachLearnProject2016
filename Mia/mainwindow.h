@@ -7,6 +7,7 @@
 #include "QStringListModel"
 
 #include "Control/statistic.h"
+#include "Control/ki.h"
 
 namespace Ui {
 class MainWindow;
@@ -40,8 +41,8 @@ private:
     void setActivPlayer();
     void appendToLogView(QString s);
 
-    //Zugriff auf die Einfache Statistisch basierte KI
-    Statistic mStatisticKI;
+    //Speicherung der einzelnen KIs - Sollte als Typ eigendlich die Basisklasse ahbnen
+    Statistic mKIs[3];
 };
 
 #endif // MAINWINDOW_H

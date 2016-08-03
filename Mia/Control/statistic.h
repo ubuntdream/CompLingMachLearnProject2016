@@ -5,8 +5,10 @@
 #include <cstdlib>
 #include "Model/value.h"
 
+#include "ki.h"
+
 //Dise Klasse beinhaltet Statistiken bei theoretischen Verteilung
-class Statistic
+class Statistic : public KI
 {
 protected:
     //Speicherung der verschiedenen Elemente in richtiger Reihenfolge
@@ -22,6 +24,7 @@ public:
     ~Statistic();
     bool look_at_dice(Value last, Value call);
     int getCall(Value last, Value rand);
+    int getStartCall(Value v);
 };
 
 #endif // STATISTIC_H

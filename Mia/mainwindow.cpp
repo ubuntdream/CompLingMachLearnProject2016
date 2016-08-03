@@ -8,6 +8,8 @@
 #include <QFile>
 #include <QTextStream>
 
+#include "iostream"
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -25,7 +27,16 @@ MainWindow::MainWindow(QWidget *parent) :
     setPlayerValue();
     setActivPlayer();
 
-    Statistic tmp;
+    // Verwende immer die KI die Statistische
+    mKIs[0] = Statistic();//Statistic();
+    mKIs[1] = Statistic();//Statistic();
+    mKIs[2] = Statistic();//Statistic();
+
+    KI* t1;
+    Statistic t2;
+    t1 = &t2;
+    //KI& t1 = (KI&) t2;
+    std::cout << t1->getStartCall(Value(4,2))<<std::endl;
 }
 
 MainWindow::~MainWindow()
@@ -148,17 +159,17 @@ void MainWindow::on_Auto_Start_Button_clicked()
                 //Hier spielt die statistische KI
                 if(newGame){
                     // Bei spielbeginn sagt sie immer die Warheit
-                    mControl->setCallValue(mControl->getRandomValue().toInt());
+                    mControl->setCallValue(mKIs[acPlayerID].getStartCall(mControl->getRandomValue()));
                     mControl->NextPlayer();
                 }else{
                     // Entscheidet ob aufgedeckt werden soll
-                    if(mStatisticKI.look_at_dice(mControl->getLastValue(),mControl->getNewValue())){
+                    if(mKIs[acPlayerID].look_at_dice(mControl->getLastValue(),mControl->getNewValue())){
                         mControl->look_at_last_Player();
                         look = true;
                     }else{
                         Value r = mControl->getRandomValue();
                         //Ermittelt den Call-Wert
-                        int  c = mStatisticKI.getCall(mControl->getLastValue(),r);
+                        int  c = mKIs[acPlayerID].getCall(mControl->getLastValue(),r);
                         mControl->setCallValue(c);
                         mControl->NextPlayer();
                     }
