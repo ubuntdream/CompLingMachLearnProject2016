@@ -41,8 +41,12 @@ private:
     void setActivPlayer();
     void appendToLogView(QString s);
 
-    //Speicherung der einzelnen KIs - Sollte als Typ eigendlich die Basisklasse ahbnen
-    Statistic mKIs[3];
+    //Speicherung der einzelnen KIs
+    KI* mKIs[3];
+    // Hier werden die verwendeten KIs erstellt, Momentan 3 mal die selbe
+    Statistic KI_1;
+    Statistic KI_2;
+    Statistic KI_3;
 };
 
 #endif // MAINWINDOW_H

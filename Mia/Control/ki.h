@@ -9,9 +9,9 @@ class KI
 public:
     KI();
     ~KI();
-    bool look_at_dice(Value last, Value call);
-    int getCall(Value last, Value rand);
-    int getStartCall(Value v);
+    virtual bool look_at_dice(Value last, Value call);
+    virtual int getCall(Value last, Value rand);
+    virtual int getStartCall(Value v);
 };
 
 #endif // KI_H
