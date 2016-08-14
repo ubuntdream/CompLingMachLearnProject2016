@@ -5,6 +5,7 @@
 
 #include "Control/control.h"
 #include "QStringListModel"
+#include "csvwriter.h"
 
 #include "Control/statistic.h"
 #include "Control/ki.h"
@@ -36,7 +37,7 @@ private:
     // Verknüpfung zur GUI(ui) und Control
     Ui::MainWindow *ui;
     Control *mControl;
-
+    CSVWriter* mCSVWriter;
     void toggleRollCall();
     void setActivPlayer();
     void appendToLogView(QString s);

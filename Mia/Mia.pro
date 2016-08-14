@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     Model/player.cpp \
     Control/statistic.cpp \
     Control/ki.cpp \
-    Control/primitiveki.cpp
+    Control/primitiveki.cpp \
+    csvwriter.cpp
 
 HEADERS  += mainwindow.h \
     Control/control.h \
@@ -30,6 +31,7 @@ HEADERS  += mainwindow.h \
     Model/player.h \
     Control/statistic.h \
     Control/ki.h \
-    Control/primitiveki.h
+    Control/primitiveki.h \
+    csvwriter.h
 
 FORMS    += mainwindow.ui
