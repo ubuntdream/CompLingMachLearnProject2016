@@ -23,4 +23,5 @@ bool CSVWriter::writeToCSV(int callValue, int rolledValue, int formerValue){
         stream << callValue << ";" << rolledValue << ";"<<formerValue<<";" <<lier <<"\n";
 
     }
+    datafile.close();
 }
