@@ -16,6 +16,10 @@ bool CSVWriter::writeToCSV(int callValue, int rolledValue, int formerValue){
     QTextStream stream(&datafile);
     if(datafile.open(QFile::ReadWrite|QFile::Append))
     {
+        //catch invalid formervalue in round 1
+        if(formerValue > 66){
+            formerValue = 0;
+        }
         int lier=0;
         if(callValue!=rolledValue){
             lier=1;
