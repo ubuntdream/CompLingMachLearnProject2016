@@ -16,10 +16,11 @@ X=data.ix[:,0:3]
 Y= data.ix[:,3]
 
 XT = tdata.ix[:,0:3]
-YT = data.ix[:,3]
+YT = tdata.ix[:,3]
 
 # maybe play with parameters. rbf-kernel is gaussian kernel ->very powerful
-model = svm.SVC(C=2, kernel='rbf', shrinking=True, tol=1e-4)
+# C= inverse of punishing parameter
+model = svm.SVC(C=0.05, kernel='rbf', shrinking=True, tol=1e-4)
 model.fit(X,Y)
 
 predictions = model.predict(X)
@@ -28,7 +29,9 @@ predictions = model.predict(X)
 loss = metrics.zero_one_loss(Y,predictions, normalize=True, sample_weight=None)
 
 # Testdata
-testLoss = metrics.zero_one_loss(Y,model.predict(XT), normalize=True, sample_weight=None)
+testpredictions = model.predict(XT)
+
+testLoss = metrics.zero_one_loss(YT,testpredictions, normalize=True, sample_weight=None)
 
 # Cross val with Accuracy score
 result = cross_validation.cross_val_score(model, X, Y, scoring='accuracy', cv=10).mean()
