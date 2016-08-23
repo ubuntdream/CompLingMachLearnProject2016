@@ -30,7 +30,6 @@
 
 # Project Files
 *.pro.user
-Mia/
 Mia.pro
 Mia/Mia.pro.user
 build-Mia-Desktop-Debug/*
