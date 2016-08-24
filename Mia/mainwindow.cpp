@@ -166,8 +166,8 @@ void MainWindow::on_Auto_Start_Button_clicked()
                     mControl->setCallValue(mKIs[acPlayerID]->getStartCall(mControl->getRandomValue()));
                     mControl->NextPlayer();
                 }else{
-                    // Entscheidet ob aufgedeckt werden soll
-                    if(mKIs[acPlayerID]->look_at_dice(mControl->getLastValue(),mControl->getNewValue())){
+                    // Entscheidet ob aufgedeckt werden soll --Achtung 21 zwingt aufzudecken...
+                    if(mKIs[acPlayerID]->look_at_dice(mControl->getLastValue(),mControl->getNewValue()) ||mControl->getNewValue().toInt()==21 ){
                         mControl->look_at_last_Player();
                         look = true;
                     }else{

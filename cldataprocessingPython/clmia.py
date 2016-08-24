@@ -9,8 +9,8 @@ import numpy as np
 #SVM as classifier method with kernels maybe?
 from sklearn import metrics,svm, cross_validation
 
-data =pd.read_csv('save.csv',sep=";", header = 0)
-tdata= pd.read_csv('save.csv',sep=";", header=0)
+data =pd.read_csv('save_statisticki.csv',sep=";", header = 0)
+tdata= pd.read_csv('save_statisticki.csv',sep=";", header=0)
 
 X=data.ix[:,3:7]
 

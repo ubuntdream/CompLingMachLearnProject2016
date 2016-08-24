@@ -9,6 +9,7 @@
 
 #include "Control/statistic.h"
 #include "Control/ki.h"
+#include "Control/primitiveki.h"
 
 namespace Ui {
 class MainWindow;
@@ -45,9 +46,13 @@ private:
     //Speicherung der einzelnen KIs
     KI* mKIs[3];
     // Hier werden die verwendeten KIs erstellt, Momentan 3 mal die selbe
-    Statistic KI_1;
+    /*Statistic KI_1;
     Statistic KI_2;
-    Statistic KI_3;
+    Statistic KI_3;*/
+
+    PrimitiveKI KI_1;
+    PrimitiveKI KI_2;
+    PrimitiveKI KI_3;
 };
 
 #endif // MAINWINDOW_H
