@@ -3,7 +3,7 @@
 #include <ctime>
 #include <cstdlib>
 #include "Model/value.h"
-
+#include "ki.h"
 /****************************************************
  * Background to this ingame artificial intelligence:
  * Checks cumulative probabilities CP of all possible
@@ -14,7 +14,7 @@
  * certain probability depending on how many possible
  * values greather than the call exist
 *****************************************************/
-class PrimitiveKI
+class PrimitiveKI:public KI
 {
 private:
     float getProbabilityGreatherX(Value x, int * indiceX);
@@ -34,6 +34,7 @@ public:
     //Sollten dazu vllt ein Interface machen...
     bool look_at_dice(Value last, Value call);
     int getCall(Value last, Value rand);
+    int getStartCall(Value v);
 };
 
 #endif // PRIMITIVEKI_H

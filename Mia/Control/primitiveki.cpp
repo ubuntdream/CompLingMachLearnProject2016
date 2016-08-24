@@ -1,7 +1,7 @@
 #include "primitiveki.h"
 #include <iostream>
 
-PrimitiveKI::PrimitiveKI()
+PrimitiveKI::PrimitiveKI():KI()
 {
     std::srand(std::time(NULL));
 }
@@ -64,4 +64,8 @@ int PrimitiveKI::getRandomValueGreaterX(Value x){
     }
 
     return xresults[indrand];
+}
+
+int PrimitiveKI::getStartCall(Value v){
+    return v.toInt();
 }
