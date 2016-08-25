@@ -12,18 +12,11 @@ from sklearn import metrics,svm, cross_validation
 data =pd.read_csv('save_statisticki.csv',sep=";", header = 0)
 tdata= pd.read_csv('save_statisticki.csv',sep=";", header=0)
 
-Data = data.as_matrix()
-
 X=data.ix[:,3:7]
+
 
 #Preprocessing
 lierlabel = (X.ix[:,1] != X.ix[:,2]).astype(int)
-
-data_look = data.ix[:,7]
-wrong_look = (lierlabel != data_look).astype(int)
-wrong = pd.concat([lierlabel, data_look, wrong_look], axis=1).as_matrix()
-wrong_look = list(wrong_look)
-print(100.0*wrong_look.count(1)/len(wrong))
 
 input = data.ix[:,[3,4,6]]
 
@@ -47,6 +40,10 @@ testpredictions = model.predict(input.ix[5000:5500,:])
 testLoss = metrics.zero_one_loss(lierlabel.ix[5000:5500],testpredictions, normalize=True, sample_weight=None)
 
 # Cross val with Accuracy score
+<<<<<<< HEAD
+result = cross_validation.cross_val_score(model, X, Y, scoring='accuracy', cv=10).mean()
+print(result)
+=======
 result = cross_validation.cross_val_score(model, input.ix[5000:5500,:], lierlabel.ix[5000:5500], scoring='accuracy', cv=10).mean()
 
 
@@ -58,3 +55,5 @@ res1 = res0[res0.ix[:,0]>0]
 
 
 #r= result0[row,:]
+
+>>>>>>> 1b9898f2846a7f0f9d6a087eeaa89e04b3080ebc

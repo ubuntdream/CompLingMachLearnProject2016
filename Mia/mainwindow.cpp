@@ -142,44 +142,54 @@ void MainWindow::on_btn_ShowResult_clicked()
 void MainWindow::on_Auto_Start_Button_clicked()
 {
     int MaxStep = ui->Auto_Stepmax->text().toInt();
-    QFile parameterFile("save.txt");
-    if(MaxStep>0 &&parameterFile.open(QIODevice::WriteOnly | QFile::Append))
+    QFile parameterFile("save.csv");
+    if(MaxStep>0 &&parameterFile.open(QIODevice::WriteOnly ))
     {
         QTextStream data(&parameterFile);
+        data << "count" << ";" <<
+                "acPlayerID" << ";" <<
+                "laPlayerID" << ";" <<
+                "newGame" << ";" <<
+                "NewValue" << ";"<<
+                "RandomValue"<<";"<<
+                "LastValue" << ";"<<
+                "look" <<"\n";
         // Aufruf des spieles
         for(int count = 0; count < MaxStep; count++){
             bool newGame = mControl->isNewGame();
             bool look = false;
             int acPlayerID = mControl->GetActivPlayerID();
             int laPlayerID = mControl->GetLastPlayerID();
-                //Hier spielt die statistische KI
-                if(newGame){
-                    // Bei spielbeginn sagt sie immer die Warheit
-                    mControl->setCallValue(mKIs[acPlayerID]->getStartCall(mControl->getRandomValue()));
-                    mControl->NextPlayer();
-                }else{
-                    // Entscheidet ob aufgedeckt werden soll
-                    if(mKIs[acPlayerID]->look_at_dice(mControl->getLastValue(),mControl->getNewValue())){
-                        mControl->look_at_last_Player();
-                        look = true;
-                    }else{
-                        Value r = mControl->getRandomValue();
-                        //Ermittelt den Call-Wert
-                        int  c = mKIs[acPlayerID]->getCall(mControl->getLastValue(),r);
-                        mControl->setCallValue(c);
-                        mControl->NextPlayer();
-                    }
-                }
+            //Hier spielt die statistische KI
+            if(newGame){
+                // Bei spielbeginn sagt sie immer die Warheit
+                mControl->setCallValue(mKIs[acPlayerID]->getStartCall(mControl->getRandomValue()));
+                mControl->NextPlayer();
+            }else{
+                Value r = mControl->getRandomValue();
+                //Ermittelt den Call-Wert
+                int  c = mKIs[acPlayerID]->getCall(mControl->getLastValue(),r);
+                mControl->setCallValue(c);
+                mControl->NextPlayer();
+            }
+            // Entscheidet ob aufgedeckt werden soll
+            if(mKIs[acPlayerID]->look_at_dice(mControl->getLastValue(),mControl->getNewValue())){
+                mControl->look_at_last_Player();
+                look = true;
+            }// Behandelt die Ansage der 21 die nicht aufgedeckt wird
+            else if(mControl->getNewValue().toInt()==21){
+                mControl->take_21();
+            }
             // Speicherung der Spieldaten in File
-            data << count << " " <<
-                    acPlayerID << " " <<
-                    laPlayerID << " " <<
-                    newGame << " " <<
-                    mControl->getNewValue().toQString() << " "<<
-                    mControl->getOnlyRandomValue().toQString()<<" "<<
-                    mControl->getLastValue().toQString() << " "<<
+            data << count << ";" <<
+                    acPlayerID << ";" <<
+                    laPlayerID << ";" <<
+                    newGame << ";" <<
+                    mControl->getNewValue().toQString() << ";"<<
+                    mControl->getOnlyRandomValue().toQString()<<";"<<
+                    mControl->getLastValue().toQString() << ";"<<
                     look <<"\n";
-            mCSVWriter->writeToCSV(mControl->getNewValue().toInt(), mControl->getOnlyRandomValue().toInt(), mControl->getLastValue().toInt());
+            mCSVWriter->writeToCSV(mControl->getNewValue().toInt(), mControl->getOnlyRandomValue().toInt(), mControl->getLastValue().toInt(),newGame);
         }
         parameterFile.close();
         appendToLogView("Autogenerator beendet");

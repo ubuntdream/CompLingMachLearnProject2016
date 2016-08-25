@@ -46,6 +46,7 @@ public:
     void NextPlayer();
     void PreviousPlayer();
     QString look_at_last_Player();
+    void take_21();
 };
 
 #endif // CONTROL_H

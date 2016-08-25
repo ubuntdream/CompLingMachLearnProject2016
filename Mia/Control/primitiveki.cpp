@@ -1,7 +1,7 @@
 #include "primitiveki.h"
 #include <iostream>
 
-PrimitiveKI::PrimitiveKI()
+PrimitiveKI::PrimitiveKI():KI()
 {
     std::srand(std::time(NULL));
 }
@@ -10,21 +10,24 @@ PrimitiveKI::PrimitiveKI()
 bool PrimitiveKI::look_at_dice(Value last, Value call){
 
     bool result =false;
-    std::cout<<"lastValue=" << last.toInt()<<". callvalue=" << call.toInt() <<std::endl;
+//    std::cout<<"lastValue=" << last.toInt()<<". callvalue=" << call.toInt() <<std::endl;
     int index;
     float p = getProbabilityGreatherX(call,&index);
 
+//    std::cout<< "HUGO--p "<<p<<std::endl;
     //If random is smaller or equal than show probability- we should look at dices
-    if(rand()/(float)RAND_MAX > 1-p){
+    if( (((float)rand())/(float)RAND_MAX) < 1-p){
         result =true;
+//        std::cout<< "HUGO--call "<<call.toInt()<<std::endl;
     }
+
     return result;
 }
 
 float PrimitiveKI::getProbabilityGreatherX(Value x, int *indiceX){
 
     int val = x.toInt();
-
+//    std::cout<< "XP="<<xprobabilities[1]<<std::endl;
     //21 is length of arrays
     float cumsum=0;
     bool searching = true;
@@ -55,13 +58,17 @@ int PrimitiveKI::getCall(Value last, Value rand){
 int PrimitiveKI::getRandomValueGreaterX(Value x){
     int val = x.toInt();
     int index;
-    float p =getProbabilityGreatherX(x,&index);
-    std::cout<<index;
+    getProbabilityGreatherX(x,&index);
+//    std::cout<<index;
     //chose random index greather index of value
     int indrand=0;
     if(index <20){
-        indrand = rand() %(20-index) + index+1;
+        indrand = (rand()) %(20-index) + index+1;
     }
 
     return xresults[indrand];
+}
+
+int PrimitiveKI::getStartCall(Value v){
+    return v.toInt();
 }

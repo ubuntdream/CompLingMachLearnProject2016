@@ -147,3 +147,9 @@ QString Control::look_at_last_Player(){
     setNewGame();
     return(s);
 }
+
+// Behandelt das akzeptieren der 21 ohne hin zu sehen
+void Control::take_21(){
+    mPlayers[mActivPlayerID].looLife(1);
+    setNewGame();
+}

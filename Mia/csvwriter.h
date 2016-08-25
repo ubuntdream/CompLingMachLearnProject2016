@@ -13,7 +13,7 @@ public:
     CSVWriter();
 
     //writes one observation to csv file
-    bool writeToCSV(int, int, int);
+    bool writeToCSV(int, int, int, bool);
 
     QTextStream readCSV();
 };
