@@ -8,6 +8,7 @@
 #include <QFile>
 #include <QTextStream>
 
+#include "csvwriter.h"
 #include "iostream"
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -15,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     mControl = new Control(3);
+    mCSVWriter = new CSVWriter();
     ui->setupUi(this);
     ui->txfld_CallValueInput->setValidator(new DiceValidator(this));
 
@@ -177,6 +179,7 @@ void MainWindow::on_Auto_Start_Button_clicked()
                     mControl->getOnlyRandomValue().toQString()<<" "<<
                     mControl->getLastValue().toQString() << " "<<
                     look <<"\n";
+            mCSVWriter->writeToCSV(mControl->getNewValue().toInt(), mControl->getOnlyRandomValue().toInt(), mControl->getLastValue().toInt());
         }
         parameterFile.close();
         appendToLogView("Autogenerator beendet");

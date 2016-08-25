@@ -20,7 +20,9 @@ SOURCES += main.cpp\
     Model/dicevalidator.cpp \
     Model/player.cpp \
     Control/statistic.cpp \
-    Control/ki.cpp
+    Control/ki.cpp \
+    Control/primitiveki.cpp \
+    csvwriter.cpp
 
 HEADERS  += mainwindow.h \
     Control/control.h \
@@ -28,6 +30,8 @@ HEADERS  += mainwindow.h \
     Model/dicevalidator.h \
     Model/player.h \
     Control/statistic.h \
-    Control/ki.h
+    Control/ki.h \
+    Control/primitiveki.h \
+    csvwriter.h
 
 FORMS    += mainwindow.ui

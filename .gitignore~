@@ -29,8 +29,12 @@
 *.app
 
 # Project Files
+<<<<<<< HEAD
 *.pro.user
-Mia/
 Mia.pro
 Mia/Mia.pro.user
 build-Mia-Desktop-Debug/*
+=======
+*.pro.user*
+*build-Mia-Desktop-Debug/*
+>>>>>>> 85e5c4938a9e1029f31cf3fd249727177504ffe2
