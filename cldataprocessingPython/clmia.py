@@ -9,8 +9,8 @@ import numpy as np
 #SVM as classifier method with kernels maybe?
 from sklearn import metrics,svm, cross_validation
 
-data =pd.read_csv('save_sta_10000.csv',sep=";", header = 0)
-tdata= pd.read_csv('save_sta_500.csv',sep=";", header=0)
+data =pd.read_csv('save_prim_10000.csv',sep=";", header = 0)
+tdata= pd.read_csv('save_prim_500.csv',sep=";", header=0)
 
 X=data.ix[:,3:7]
 
@@ -44,7 +44,6 @@ testLoss = metrics.zero_one_loss(tlierlabel,testpredictions, normalize=True, sam
 
 # Cross val with Accuracy score
 result = cross_validation.cross_val_score(model, test_input, tlierlabel, scoring='accuracy', cv=10).mean()
-
 
 fPfN = (testpredictions != tlierlabel).astype(int)
 res0 = pd.concat([fPfN, test_input], axis=1)
