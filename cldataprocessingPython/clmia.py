@@ -30,7 +30,7 @@ tlierlabel = (Y.ix[:,1] != Y.ix[:,2]).astype(int)
 
 # maybe play with parameters. rbf-kernel is gaussian kernel ->very powerful
 # C= inverse of punishing parameter
-model = svm.SVC(C=5, kernel='rbf', shrinking=True, tol=1e-4)
+model = svm.SVC(C=2.3, kernel='rbf', shrinking=True, tol=1e-4)
 model.fit(data_input,lierlabel)
 predictions = model.predict(data_input)
 
@@ -43,7 +43,7 @@ testpredictions = model.predict(test_input)
 testLoss = metrics.zero_one_loss(tlierlabel,testpredictions, normalize=True, sample_weight=None)
 
 # Cross val with Accuracy score
-result = cross_validation.cross_val_score(model, test_input, tlierlabel, scoring='accuracy', cv=10).mean()
+result = cross_validation.cross_val_score(model, test_input, tlierlabel, scoring='accuracy', cv=8).mean()
 
 fPfN = (testpredictions != tlierlabel).astype(int)
 res0 = pd.concat([fPfN, test_input], axis=1)
