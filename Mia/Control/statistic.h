@@ -22,7 +22,7 @@ protected:
 public:
     Statistic();
     ~Statistic();
-    bool look_at_dice(Value last, Value call);
+    bool look_at_dice(Value last, Value call,bool startGame);
     int getCall(Value last, Value rand);
     int getStartCall(Value v);
 };

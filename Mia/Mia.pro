@@ -8,6 +8,8 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+LIBS += `pkg-config opencv --libs`
+
 TARGET = Mia
 TEMPLATE = app
 
@@ -22,7 +24,8 @@ SOURCES += main.cpp\
     Control/statistic.cpp \
     Control/ki.cpp \
     Control/primitiveki.cpp \
-    csvwriter.cpp
+    csvwriter.cpp \
+    Control/svmki.cpp
 
 HEADERS  += mainwindow.h \
     Control/control.h \
@@ -32,6 +35,7 @@ HEADERS  += mainwindow.h \
     Control/statistic.h \
     Control/ki.h \
     Control/primitiveki.h \
-    csvwriter.h
+    csvwriter.h \
+    Control/svmki.h
 
 FORMS    += mainwindow.ui

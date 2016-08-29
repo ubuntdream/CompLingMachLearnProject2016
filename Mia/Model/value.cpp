@@ -7,9 +7,12 @@ Value::Value()
 }
 
 Value::Value(int v){
-    int l = v%10;
-    int h = v/10;
-    Value(l,h);
+    int a = v%10;
+    int b = v/10;
+    this->lowval = std::min(a,b);
+    this->highval = std::max(a,b);
+    pasch = a==b;
+    mia = this->lowval == 1 && this->highval == 2;
 }
 
 Value::Value(int a, int b)

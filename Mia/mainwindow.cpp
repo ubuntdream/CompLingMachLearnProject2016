@@ -9,7 +9,7 @@
 #include <QTextStream>
 
 #include "csvwriter.h"
-#include "iostream"
+#include <iostream>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -173,13 +173,15 @@ void MainWindow::on_Auto_Start_Button_clicked()
                 mControl->NextPlayer();
             }
             // Entscheidet ob aufgedeckt werden soll
-            if(mKIs[acPlayerID]->look_at_dice(mControl->getLastValue(),mControl->getNewValue())){
+            if(mKIs[acPlayerID]->look_at_dice(mControl->getLastValue(),mControl->getNewValue(),newGame)){
                 mControl->look_at_last_Player();
                 look = true;
             }// Behandelt die Ansage der 21 die nicht aufgedeckt wird
             else if(mControl->getNewValue().toInt()==21){
                 mControl->take_21();
             }
+            //Lernen der KI aufrufen
+            learn(mControl->getNewValue(), mControl->getOnlyRandomValue(), mControl->getLastValue(), newGame);
             // Speicherung der Spieldaten in File
             data << count << ";" <<
                     acPlayerID << ";" <<
@@ -195,5 +197,12 @@ void MainWindow::on_Auto_Start_Button_clicked()
         appendToLogView("Autogenerator beendet");
     }else{
         appendToLogView("Fehler: Anzahl falsch oder File Fehler");
+    }
+}
+
+//behandelt das lernen der KIs - etwas unfertig
+void MainWindow::learn(Value call, Value rand, Value last, bool startGame){
+    for(int i = 0; i < 3; i++){
+        mKIs[i]->learn(call, rand, last, startGame);
     }
 }

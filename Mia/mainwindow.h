@@ -7,9 +7,10 @@
 #include "QStringListModel"
 #include "csvwriter.h"
 
-#include "Control/statistic.h"
 #include "Control/ki.h"
+#include "Control/statistic.h"
 #include "Control/primitiveki.h"
+#include "Control/svmki.h"
 
 namespace Ui {
 class MainWindow;
@@ -42,19 +43,28 @@ private:
     void toggleRollCall();
     void setActivPlayer();
     void appendToLogView(QString s);
+    void learn(Value call, Value rand, Value last, bool startGame);
 
     //Speicherung der einzelnen KIs
     KI* mKIs[3];
     // Hier werden die verwendeten KIs erstellt, Momentan 3 mal die selbe
+
+    /*
     Statistic KI_1;
     Statistic KI_2;
     Statistic KI_3;
+    */
 
     /*
     PrimitiveKI KI_1;
     PrimitiveKI KI_2;
     PrimitiveKI KI_3;
     */
+
+    SVMKI KI_1;
+    SVMKI KI_2;
+    SVMKI KI_3;
+
 };
 
 #endif // MAINWINDOW_H

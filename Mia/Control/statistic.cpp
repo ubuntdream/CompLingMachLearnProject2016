@@ -40,7 +40,7 @@ int Statistic::getProbertyRollGrather(int v){
  * Entsheidung anhand der Wahrscehinlichkeit einen größeren Wert als
  * der Letzte Wert zu werfen
 */
-bool Statistic::look_at_dice(Value last, Value call){
+bool Statistic::look_at_dice(Value last, Value call, bool startGame){
     return 18>getProbertyRollGrather(call.toInt());
 }
 

@@ -7,7 +7,7 @@ PrimitiveKI::PrimitiveKI():KI()
 }
 
 
-bool PrimitiveKI::look_at_dice(Value last, Value call){
+bool PrimitiveKI::look_at_dice(Value last, Value call, bool startGame){
 
     bool result =false;
 //    std::cout<<"lastValue=" << last.toInt()<<". callvalue=" << call.toInt() <<std::endl;
