@@ -141,6 +141,7 @@ void MainWindow::on_btn_ShowResult_clicked()
 // Speichere alle Werte in save.txt
 void MainWindow::on_Auto_Start_Button_clicked()
 {
+    appendToLogView("Autogenerator start");
     int MaxStep = ui->Auto_Stepmax->text().toInt();
     QFile parameterFile("save.csv");
     if(MaxStep>0 &&parameterFile.open(QIODevice::WriteOnly ))
@@ -193,6 +194,7 @@ void MainWindow::on_Auto_Start_Button_clicked()
                     look <<"\n";
             mCSVWriter->writeToCSV(mControl->getNewValue().toInt(), mControl->getOnlyRandomValue().toInt(), mControl->getLastValue().toInt(),newGame);
         }
+        mKIs[0]->save();
         parameterFile.close();
         appendToLogView("Autogenerator beendet");
     }else{

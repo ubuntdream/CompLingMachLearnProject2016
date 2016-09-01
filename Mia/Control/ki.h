@@ -13,6 +13,7 @@ public:
     virtual int getCall(Value last, Value rand);
     virtual int getStartCall(Value v);
     virtual void learn(Value call, Value rand, Value last, bool startGame);
+    virtual void save();
 };
 
 #endif // KI_H

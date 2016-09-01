@@ -25,3 +25,7 @@ bool KI::look_at_dice(Value last, Value call, bool startGame){
 void KI::learn(Value call, Value rand, Value last, bool startGame){
 
 }
+
+void KI::save(){
+
+}

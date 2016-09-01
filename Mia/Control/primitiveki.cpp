@@ -50,7 +50,7 @@ int PrimitiveKI::getCall(Value last, Value rand){
         result = rand.toInt();
     }
     else{
-        result = getRandomValueGreaterX(last.toInt());
+        result = getRandomValueGreaterX(last);
     }
     return result;
 }
