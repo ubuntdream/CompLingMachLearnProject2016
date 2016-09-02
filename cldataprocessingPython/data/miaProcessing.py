@@ -8,21 +8,42 @@ import pandas as pd
 import numpy as np
 #SVM as classifier method with kernels
 from sklearn import metrics,svm, cross_validation
+import os
 
-data_stat =pd.read_csv('statistic10mio.csv',sep=";", header = 0)
-data_prim = pd.read_csv('primitive10mio.csv', sep=";", header=0)
+#Load all datasets. You can adapt this path. Files are in our git-repo.
+#Reduce dataset to max 10000 for computational reasons
+os.chdir('/home/alex/Schreibtisch/data')
+data_stat = pd.read_csv('statisticki1mio.csv',sep=";", header = 0).ix[1:10000,:]
+data_prim = pd.read_csv('primitiveki1mio.csv', sep=";", header=0).ix[1:10000,:]
 
+data_svm1 = pd.read_csv('svm1ki5K.csv', sep=";", header=0)
+data_svm2 = pd.read_csv('svm2ki5K.csv', sep=";", header=0)
+data_svm3 = pd.read_csv('svm3ki5K.csv', sep=";", header=0)
+data_svm4 = pd.read_csv('svm4ki5K.csv', sep=";", header=0)
 #%%
-data = data_prim #switch between sets
+data_original = data_svm4
+#switch between sets
+#data_svm3
+#data_svm2
+#data_svm1
+#data_prim
+#data_stat 
 
+data = data_original.ix[:,[3,4,6]]
+label = (data_original['NewValue']!= data_original['RandomValue']).astype(int)
+#Generate testdata and traindata, using 30% for testing
+traindata, testdata, trainlabel, testlabel = cross_validation.train_test_split(data,label, test_size=0.3, random_state=7)
+
+
+#automatisieren mit 40%testdaten
 #leave first row out because of uninitialised lastvalue (not under windows?)
 #use columns newGame, NewValue and LastValue
-traindata = data.ix[1:10000,[3,4,6]]
+#traindata = data.ix[1:10000,[3,4,6]]
 #1) Predict if Player is a liar or tells the truth
-trainlabel= (data['NewValue']!= data['RandomValue']).ix[1:10000].astype(int)
+#trainlabel= (data['NewValue']!= data['RandomValue']).ix[1:10000].astype(int)
 
-testdata = data.ix[2001:2500,[3,4,6]]
-testlabel = (data['NewValue']!= data['RandomValue']).ix[2001:2500].astype(int)
+#testdata = data.ix[2001:2500,[3,4,6]]
+#testlabel = (data['NewValue']!= data['RandomValue']).ix[2001:2500].astype(int)
 
 # do crossvalidation for checking parameters part 1
 cvalues=[0.001, 0.01, 0.1, 1, 10, 100, 1000]
@@ -40,15 +61,6 @@ for c in cvalues:
         lastresult=result
     print(s)
 
-#Output statistic-ki
-#C=0.001 result0.8768001506001506
-#C=0.01 result0.8768001506001506
-#C=0.1 result0.8768001506001506
-#C=1 result0.87840064970064957 --> highest accuracy in training
-#C=10 result0.87660174940174951
-#C=100 result0.87600184970184958
-#C=1000 result0.87680215000214989
-
 # do crossvalidation for checking parameters part 2
 set1=np.arange(cmax/10,cmax, cmax/10)  
 set2 = np.arange(cmax,cmax*10, cmax)  
@@ -61,7 +73,7 @@ for c in cvalues2:
     model = svm.SVC(C=c, kernel='rbf', shrinking=True, tol=1e-4)
     model.fit(traindata,trainlabel)
     result = cross_validation.cross_val_score(model, traindata, trainlabel, scoring='accuracy', cv=10, n_jobs=6).mean()
-    s = "C="+repr(c)+" result"+ repr(result)
+    s = "C="+repr(c)+" result="+ repr(result)
 
     if result > lastresult2:
         cmax2=c
@@ -70,50 +82,37 @@ for c in cvalues2:
 s="Maximal value is for c="+repr(cmax2)
 print(s)
 
-#Output statistic-ki
-#C=0.1 result0.8768001506001506
-#C=0.2 result0.87760025090025096
-#C=0.3 result0.87980015100015108 -->surprising result!
-#C=0.5 result0.87860135060135069
-#C=0.7 result0.87880145010145017
-#C=1 result0.87840064970064957
-#C=2 result0.87790054980054977
-#C=3 result0.87710144930144929
-    
-
 # Using testset with estimated parameter    
 model = svm.SVC(C=cmax2, kernel='rbf', shrinking=True, tol=1e-4)
 testresult = cross_validation.cross_val_score(model, testdata, testlabel, scoring='accuracy', cv=10, n_jobs=6).mean()
 s = "Testresult= " +repr(testresult)
 print(s)
-#Statisticki
-#(Testresult= 0.85210804321728695 --C=1)
-#Testresult= 0.8779903961584633 -- C=0.3
 
-#Primitiveki C=1
-#Testresult= 0.81217046818727501
-#%%
 #How many samples until good result is achieved 
-#@FALKO wie können wir das besser machen bzw dass es überhaupt sinnvoll tut?
-trainset = 250
+trainset = 100
 eps = 1
 tempresult = 0
 
-while eps> 1e-4:
-    traindata = data.ix[1:trainset,[3,4,6]]
-    trainlabel= (data['NewValue']!= data['RandomValue']).ix[1:trainset].astype(int)
-    model = svm.SVC(C=0.3, kernel='rbf', shrinking=True, tol=1e-6)
+#Plotten! Reihe aufnehmen.
+print("Convergence")
+while eps> 1e-4 and trainset<data.shape[0]:
+    td = data.ix[1:trainset,:]
+    tl= (data_original['NewValue']!= data_original['RandomValue']).ix[1:trainset].astype(int)
+    model = svm.SVC(C=1, kernel='rbf', shrinking=True, tol=1e-5)
     model.fit(traindata,trainlabel)
-    result = cross_validation.cross_val_score(model, traindata, trainlabel, scoring='accuracy', cv=10, n_jobs=6).mean()
-    s = "trainset="+repr(trainset)+" result"+ repr(result)    
+    result = cross_validation.cross_val_score(model, td, tl, scoring='accuracy', cv=10, n_jobs=6).mean()
+    s = "trainset="+repr(trainset)+" result="+ repr(result)    
     print(s)    
     eps = abs(result-tempresult)
     tempresult = result
-    trainset+=1000
-#%%
+    trainset+=500
 
-
-
+# Quality of original KI?
+print("Quality of KI")
+x = (data_original['NewValue']!= data_original['RandomValue']) == (data_original['look'])
+c = x.tolist().count(True)
+s = "Original KI recognized: " + repr(c/(x.size))
+print(s)
 
 
 #%%

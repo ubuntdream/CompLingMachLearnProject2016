@@ -5,7 +5,7 @@
 
 SVMKI::SVMKI()
 {
-    mcallNr = 4;
+    mcallNr = 2;
     std::srand(std::time(NULL));
 
     /*
