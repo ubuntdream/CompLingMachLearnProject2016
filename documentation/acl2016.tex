@@ -69,27 +69,67 @@ In computer games artificial intelligence reaches new stages of success (Google 
 Mia is a simple dice game that is played with two dices and a flat bottomed container (or a dice cup). At the beginning each player has a certain amount of lives (e.g. five).
 The first player rolls the dices but keeps their values hidden from the other players. He then can decide if he wants to tell the truth to the next player and announce a value that was was actually rolled. Alternatively he can lie and announce a greater or lesser value than the rolled one.
 But each player has to announce a greater value than the previous player.
-
 The next player (who still has not seen the actual values) can now believe the passer, call the passer a liar and look on the dice or pass the dice to the next player (still without looking) announcing a higher value. 
-
 A player looses a life if he called the previous one a liar and looked on the values to find out that they are what the previous player has announced or even higher. Otherwise the previous player looses a life. 
-
 The higher value of the roll is multiplied by then and then added to the other die (a 4 and a 2 is 42). 
 The \textbf{scoring} is from highest to lowest:  21 (Mia), 11, 22, 33, 44, 55, 66, 65, 64, 63, 62, 61, 54, 53, 52, 51, 43, 42, 41, 32, 31.
-
 If a player announces mia the next player either believes him, give up (without looking at the dices) and looses one life. Or he may look at the dice. If it was actually mia then he looses two lifes if it was not, the previous player looses a life. (For further information see \cite{mia:2016}.)
 
-\section{The Strategies}
+\section{Implementation of the Game}
+%TODO hier kannst du was über die QT Implementierung rein schreiben
+
+\section{Setup and Strategies}
+To measure the performance of the predictor different artificial intelligence approaches were used. For data acquisition we used a homogeneous set of players in our game implementation and let it generate game data. For each turn we reported:
+\begin{itemize}
+	\item player number
+	\item previous player number
+	\item if the turn is the first one in the round (new game)
+	\item new announced value
+	\item actual rolled value
+	\item previous announced value
+	\item does the player look onto the dices or not
+\end{itemize}
+Since the actual rolled value is mostly hidden from the players. We decided to learn the predictor the players strategies only based on: new game, last announced value and new announced value (this seems most realistic).
+We then create liar labels for the datasets due to comparison of the new announced value and the actual rolled value for training purposes.
+Each dataset is split up to training data and test data. So we train the predictor for the different approaches by using cross validation (determination of parameter C) on the training data and measure the performance (generalization) on the test data. The test set is 30 per cent of the data set, the others are training data.
+In the end we will compare the results of the implemented AIs detecting lies (take the \textit{look at} label and the predictions of our predictor).
+
+We examined three different types of artificial intelligence approaches. First the statistical approach where the AI acts very straight forward. Then an AI with a certain degree of randomness in its call and look behavior. Last we implemented a learning AI with different calling behaviors to examine if the predictor is able to learn the strategy of a learning player.
 
 \subsection{Statistic Approach}
-\subsection{Approach with certain degree of randomness}
-\subsection{A SVM learning approach}
+\subsection{Approach with certain degree of randomness (Primitive Random)}
+This AI will call with a certain probability a value that is greater than the actual rolled value if the value is lower than the one of the previous player. Also the AI will look on the dices with a probability that arises with decreasing beat probability of a announced value (a 31 will not be looked at with probability near 100 per cent, 21 is looked at with 100 per cent). 
 
-\section{The predictor}
+\subsection{A SVM learning approach}
+\subsubsection{SVM variant 1}
+\subsubsection{SVM variant 2}
+\subsubsection{SVM variant 3}
+\subsubsection{SVM variant 4}
+
+\section{The Predictor}
 To predict the different strategical approaches we used a support vector machine (SVM) predictor with radial basis functions. A linear predictor would not have been sufficient due to the complexity of data, but with the SVM-predictor adequate results could be expected.
 By using SVM we are interested in separating two (or more) classes by a separating hyperplane with maximal margin. The margin is defined with respect to the training points as the minimal distance between the hyperplane and a training point.(See \cite{luxburg:2016} and \cite[187--227]{Schoellkopf:02}.)
 
-\section{Discussion of results}
+\section{Discussion of Results}
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{|l|l|l|l|l|}
+
+\hline
+\textbf{strategy}&\textbf{sdetect}&\textbf{C}&\textbf{pdetect} \\ \hline
+\textbf{statistic}&\textbf{0.473}&\textbf{0.0001}&\textbf{0.863} \\ \hline
+\textbf{primitive}&\textbf{0.585}&\textbf{0.5}&\textbf{0.849} \\ \hline
+\textbf{SVM1}&\textbf{0.964}&\textbf{2.0}&\textbf{0.971} \\ \hline
+\textbf{SVM2}&\textbf{0.810}&\textbf{0.6}&\textbf{0.797}\\ \hline 
+\textbf{SVM3}&\textbf{0.844}&\textbf{3.0}&\textbf{0.971}\\ \hline 
+\textbf{SVM4}&\textbf{0.642}&\textbf{2.0}&\textbf{0.989} \\ \hline
+
+
+\end{tabular}
+\caption{Obtained results in the experiments. Strategy, strategies liar detection (sdetect), parameter C for predictor, predictors liar detection (pdetect) on test data.}
+\label{tab:accents}
+\end{table}
 
 \begin{figure}[H]
 	\centering
