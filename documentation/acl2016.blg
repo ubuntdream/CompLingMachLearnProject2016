@@ -3,48 +3,48 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: acl2016.aux
 The style file: acl2016.bst
 Database file #1: acl2016.bib
-Warning--empty title in ACM:83
-Warning--can't use both volume and number fields in ACM:83
-Warning--empty publisher in ACM:83
-You've used 5 entries,
+Warning--entry type for "mia:2016" isn't style-file defined
+--line 46 of file acl2016.bib
+Warning--to sort, need author or key in mia:2016
+You've used 1 entry,
             2490 wiz_defined-function locations,
-            586 strings with 5065 characters,
-and the built_in function-call counts, 1855 in all, are:
-= -- 187
-> -- 52
-< -- 3
-+ -- 17
-- -- 16
-* -- 134
-:= -- 304
-add.period$ -- 19
-call.type$ -- 5
-change.case$ -- 24
-chr.to.int$ -- 5
-cite$ -- 8
-duplicate$ -- 91
-empty$ -- 155
-format.name$ -- 22
-if$ -- 387
+            554 strings with 4532 characters,
+and the built_in function-call counts, 255 in all, are:
+= -- 25
+> -- 1
+< -- 0
++ -- 0
+- -- 0
+* -- 14
+:= -- 38
+add.period$ -- 3
+call.type$ -- 1
+change.case$ -- 4
+chr.to.int$ -- 1
+cite$ -- 3
+duplicate$ -- 11
+empty$ -- 29
+format.name$ -- 0
+if$ -- 57
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 8
-newline$ -- 32
-num.names$ -- 15
-pop$ -- 38
+missing$ -- 0
+newline$ -- 8
+num.names$ -- 0
+pop$ -- 9
 preamble$ -- 1
-purify$ -- 33
+purify$ -- 5
 quote$ -- 0
-skip$ -- 63
+skip$ -- 12
 stack$ -- 0
-substring$ -- 83
-swap$ -- 22
-text.length$ -- 3
+substring$ -- 6
+swap$ -- 2
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 28
-warning$ -- 3
-while$ -- 15
-width$ -- 9
-write$ -- 72
-(There were 3 warnings)
+type$ -- 8
+warning$ -- 1
+while$ -- 0
+width$ -- 2
+write$ -- 13
+(There were 2 warnings)
