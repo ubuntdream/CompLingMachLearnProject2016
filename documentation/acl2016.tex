@@ -21,6 +21,9 @@
 \usepackage{url}
 \usepackage{latexsym}
 \usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+
 %\aclfinalcopy % Uncomment this line for the final submission
 %\def\aclpaperid{***} %  Enter the acl Paper ID here
 
@@ -50,28 +53,15 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-  %TODO
+  This term paper deals with the topic of predicting different artificial intelligence approaches based on the game mia. It starts with an short introduction to artificial intelligence. Then, the description of the game mia on which the project is based on. Afterwards, the strategies of the different implemented artificial intelligences (AI) are explained. It follows an explanation of our approach predicting the behavior of the different AIs. Finally, the results of the experiments are discussed.
+  %TODO weiteres?
 \end{abstract}
 
-\section{Credits}
-
-This document has been adapted from the instructions for earlier ACL
-and NAACL proceedings, including those for NAACL-2016 by Margaret
-Mitchell, ACL-2012 by Maggie Li and Michael
-White, those from ACL-2010 by Jing-Shing Chang and Philipp Koehn,
-those for ACL-2008 by Johanna D. Moore, Simone Teufel, James Allan,
-and Sadaoki Furui, those for ACL-2005 by Hwee Tou Ng and Kemal
-Oflazer, those for ACL-2002 by Eugene Charniak and Dekang Lin, and
-earlier ACL and EACL formats. Those versions were written by several
-people, including John Chen, Henry S. Thompson and Donald
-Walker. Additional elements were taken from the formatting
-instructions of the {\em International Joint Conference on Artificial
-  Intelligence} and the \emph{Conference on Computer Vision and
-Pattern Recognition}.
 
 \section{Introduction}
-
-%TODO
+Artificial intelligence has become an increasingly important field in computer science and other areas such as automotive (self-driving cars) or security (face-detection).
+In computer games artificial intelligence reaches new stages of success (Google bot AlphaGo for the game go). In this term paper we now want to answer the question if it is possible to predict different artificial intelligence approaches based on the game mia. The main achievement would be the accuracy of correct predictions if a player (AI) will to lie or tells the correct value. If the actual value is lesser or greater seems not as important as prediction liars properly. 
+%TODO noch mehr?
 
 
 
@@ -88,6 +78,7 @@ The higher value of the roll is multiplied by then and then added to the other d
 The \textbf{scoring} is from highest to lowest:  21 (Mia), 11, 22, 33, 44, 55, 66, 65, 64, 63, 62, 61, 54, 53, 52, 51, 43, 42, 41, 32, 31.
 
 If a player announces mia the next player either believes him, give up (without looking at the dices) and looses one life. Or he may look at the dice. If it was actually mia then he looses two lifes if it was not, the previous player looses a life. (For further information see \cite{mia:2016}.)
+
 \section{The Strategies}
 
 \subsection{Statistic Approach}
@@ -95,7 +86,56 @@ If a player announces mia the next player either believes him, give up (without 
 \subsection{A SVM learning approach}
 
 \section{The predictor}
+To predict the different strategical approaches we used a support vector machine (SVM) predictor with radial basis functions. A linear predictor would not have been sufficient due to the complexity of data, but with the SVM-predictor adequate results could be expected.
+By using SVM we are interested in separating two (or more) classes by a separating hyperplane with maximal margin. The margin is defined with respect to the training points as the minimal distance between the hyperplane and a training point.(See \cite{luxburg:2016} and \cite[187--227]{Schoellkopf:02}.)
 
+\section{Discussion of results}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.45\textwidth]{../testdata/svm1.png}
+	\caption{caption svm1}
+	\label{svm1}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.45\textwidth]{../testdata/svm2.png}
+	\caption{caption svm2}
+	\label{svm2}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.45\textwidth]{../testdata/svm3.png}
+	\caption{caption svm3}
+	\label{svm3}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.45\textwidth]{../testdata/svm4.png}
+	\caption{caption svm4}
+	\label{svm4}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.45\textwidth]{../testdata/convergence_all.png}
+	\caption{caption convergence all}
+	\label{convergence all svms}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.45\textwidth]{../testdata/conv_prim.png}
+	\caption{caption convergence all}
+	\label{convergence primitive}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.45\textwidth]{../testdata/conv_stat.png}
+	\caption{caption convergence all}
+	\label{convergence statistic}
+\end{figure}
+
+%10000 for stat und prim
+%5000 for svms
 
 %\begin{table}
 %\centering

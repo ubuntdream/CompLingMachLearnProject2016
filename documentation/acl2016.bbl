@@ -5,4 +5,17 @@
 \newblock Mia (game).
 \newblock \url{https://en.wikipedia.org/wiki/Mia_(game)}.
 
+\bibitem[\protect\citename{Schoellkopf and Smola}2002]{Schoellkopf:02}
+Bernhard Schoellkopf and Alexander~J. Smola.
+\newblock 2002.
+\newblock {\em Learning with Kernels}.
+\newblock Massachusetts Institute of Technology, Cambridge, Massachusetts,
+  London, England.
+
+\bibitem[\protect\citename{von Luxburg}2016]{luxburg:2016}
+Ulrike von Luxburg.
+\newblock 2016.
+\newblock Machine learning: Algorithms and theory.
+\newblock Scriptum for the lecture.
+
 \end{thebibliography}
