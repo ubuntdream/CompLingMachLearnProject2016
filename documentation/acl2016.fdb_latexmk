@@ -1,13 +1,14 @@
 # Fdb version 3
-["bibtex acl2016"] 1473075719 "acl2016.aux" "acl2016.bbl" "acl2016" 1473075803
+["bibtex acl2016"] 1473161700 "acl2016.aux" "acl2016.bbl" "acl2016" 1473161870
   "./acl2016.bst" 1453023051 25099 9e361dd593cf5bde4bcdca583d3b8ad3 ""
-  "acl2016.aux" 1473075720 4429 ebe57afb94720198e1aeceba2469bced ""
+  "acl2016.aux" 1473161870 6582 89d330a32aa389897bba750fbee70c0c ""
   "acl2016.bcf" 0 -1 0 ""
   "acl2016.bib" 1473062946 1557 4f4aa2951df6ae647dc39410f1cb0058 ""
   (generated)
-  "acl2016.bbl"
   "acl2016.blg"
-["pdflatex"] 1473075719 "acl2016.tex" "acl2016.pdf" "acl2016" 1473075803
+  "acl2016.bbl"
+["pdflatex"] 1473161870 "acl2016.tex" "acl2016.pdf" "acl2016" 1473161870
+  "../testdata/conv_ingameSVM1.png" 1473161512 8818 3376f4c6beb699571abfd6cf70bfce41 ""
   "../testdata/conv_prim.png" 1473075218 9912 8e871a5a746093525e77866403e7ee6f ""
   "../testdata/conv_stat.png" 1473075203 12497 6c67cdf3aa7a4b2ddc73aa8a32fcf9da ""
   "../testdata/convergence_all.png" 1472817083 35554 136da074e0921721f90f72fb76925ae2 ""
@@ -94,13 +95,13 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1471317729 31669 df537245012f3e5f05bdc55644b7a3df ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1471360258 1758194 34f123b8fa28cc66e70d9b095a3909d5 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1471360197 7252863 eb58941656c71b2774ca7030e685729c ""
-  "acl2016.aux" 1473075720 4429 ebe57afb94720198e1aeceba2469bced ""
-  "acl2016.bbl" 1473075719 632 aa33f9b1b9fec16130059f04a6d6ad64 "bibtex acl2016"
-  "acl2016.out" 1473075720 911 c3716ddf9a0cb28dad67908ee5a0eb6f ""
+  "acl2016.aux" 1473161870 6582 89d330a32aa389897bba750fbee70c0c ""
+  "acl2016.bbl" 1473161700 449 6c9de66e2cff54ed1fba114b6b10b924 "bibtex acl2016"
+  "acl2016.out" 1473161870 911 c3716ddf9a0cb28dad67908ee5a0eb6f ""
   "acl2016.sty" 1455087434 23474 f473cd17b4a23709984055f33545f9ef ""
-  "acl2016.tex" 1473075719 13700 6da3d6591f2d1907817704d9a47fb219 ""
+  "acl2016.tex" 1473161868 19729 221caf7e5499c3902719dccf4b20c33b ""
   (generated)
   "acl2016.aux"
   "acl2016.log"
-  "acl2016.out"
   "acl2016.pdf"
+  "acl2016.out"

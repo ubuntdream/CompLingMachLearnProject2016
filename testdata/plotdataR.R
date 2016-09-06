@@ -46,4 +46,11 @@ lines(x_svm2,y_svm2,type="b", col="green")
 lines(x_svm3,y_svm3,type="b", col="blue")
 lines(x_svm4,y_svm4,type="b", col="black")
 legend("bottomright",legend = c("SVM1","SVM2","SVM3","SVM4"), col=c("red","green","blue","black"), lty = c(1,1,1,1))
+
+
+# Convergenz blockweise SVM1
+xCSVM = seq(from=200, to= 5000, by= 5000/25)
+yCSVM = c(0.85,0.96,0.925,0.96,0.95,0.96,0.975,0.975,0.975,0.985,0.97,0.985,0.98,0.965,0.965,0.98,0.995,0.97,0.955,0.965,0.96,0.975,0.975,0.985,0.965)
+
+plot(xCSVM, yCSVM,main="Convergence of ingame SVM1", type="b", xlab="numSamples", ylab="accuracy")
        

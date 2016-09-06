@@ -21,7 +21,7 @@ data_svm2 = pd.read_csv('svm2ki5K.csv', sep=";", header=0)
 data_svm3 = pd.read_csv('svm3ki5K.csv', sep=";", header=0)
 data_svm4 = pd.read_csv('svm4ki5K.csv', sep=";", header=0)
 #%%
-data_original = data_svm4
+data_original = data_svm1
 #switch between sets
 #data_svm3
 #data_svm2
@@ -114,6 +114,14 @@ c = x.tolist().count(True)
 s = "Original KI recognized: " + repr(c/(x.size))
 print(s)
 
+#%%
+# test for svm1 convergence in game ai
+for i in range(0,25):
+    a = int( i*5000/25)
+    b = int ((i+1)*5000/25)
+    x =( (data_original['NewValue'][a:b] != data_original['RandomValue'][a:b] )== data_original['look'][a:b])
+    c = x.tolist().count(True)
+    print(repr(c/(x.size)))
 
 #%%
 #X=data.ix[:,3:7]
