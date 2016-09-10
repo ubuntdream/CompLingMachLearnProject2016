@@ -24,7 +24,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{cleveref}
-%\aclfinalcopy % Uncomment this line for the final submission
+\aclfinalcopy % Uncomment this line for the final submission
 %\def\aclpaperid{***} %  Enter the acl Paper ID here
 
 %\setlength\titlebox{5cm}
@@ -38,15 +38,13 @@
 \title{Building predictors for the game mia}
 %nur sichtbar in finaler submission.
 \author{Falko Benezan \\
-  Affiliation / Address line 1 \\
-  Affiliation / Address line 2 \\
-  Affiliation / Address line 3 \\
-  {\tt email@domain} \\\And
+  ID: 3617296\\
+  {\tt falko.benezan@}\\
+  {\tt student.uni-tuebingen.de} \\\And
   Alexander Diegel \\
-  Affiliation / Address line 1 \\
-  Affiliation / Address line 2 \\
-  Affiliation / Address line 3 \\
-  {\tt email@domain} \\}
+	ID: 3980486 \\
+  {\tt alexander.diegel@}\\
+  {\tt student.uni-tuebingen.de} \\}
 
 \date{}
 
@@ -60,19 +58,19 @@
 
 \section{Introduction}
 Artificial intelligence has become an increasingly important field in computer science and other areas such as automotive (self-driving cars) or security (face-detection).
-In computer games artificial intelligence reaches new stages of success (Google bot AlphaGo for the game go). In this term paper we now want to answer the question if it is possible to predict different artificial intelligence approaches based on the game mia. The main achievement would be the accuracy of correct predictions if a player (AI) will to lie or tells the correct value. If the actual value is lesser or greater seems not as important as prediction liars properly. 
+In computer games artificial intelligence reaches new stages of success (Google bot AlphaGo for the game go). In this term paper we now want to answer the question if it is possible to predict different artificial intelligence approaches based on the game mia. The main achievement would be the accuracy of correct predictions if a player (AI) is willing to lie or is telling the correct value of the dice. The question if the actual value is lesser or greater than the called one seems not as important as the prediction of a lie itself. 
 %TODO noch mehr?
 
 
 
 \section{The Game}
 Mia is a simple dice game that is played with two dices and a flat bottomed container (or a dice cup). At the beginning each player has a certain amount of lives (e.g. five).
-The first player rolls the dices but keeps their values hidden from the other players. He then can decide if he wants to tell the truth to the next player and announce a value that was was actually rolled. Alternatively he can lie and announce a greater or lesser value than the rolled one.
+The first player rolls the dices but keeps their values hidden from the other players. He then can decide if he wants to tell the truth to the next player and announce a value that was actually rolled. Alternatively he can lie and announce a greater or lesser value than the rolled one.
 But each player has to announce a greater value than the previous player.
 The next player (who still has not seen the actual values) can now believe the passer, call the passer a liar and look on the dice or pass the dice to the next player (still without looking) announcing a higher value. 
 A player looses a life if he called the previous one a liar and looked on the values to find out that they are what the previous player has announced or even higher. Otherwise the previous player looses a life. 
-The higher value of the roll is multiplied by then and then added to the other die (a 4 and a 2 is 42). 
-The \textbf{scoring} is from highest to lowest:  21 (Mia), 11, 22, 33, 44, 55, 66, 65, 64, 63, 62, 61, 54, 53, 52, 51, 43, 42, 41, 32, 31.
+The higher value of the roll is multiplied by ten and then added to the other die (a 4 and a 2 is 42). 
+The \textbf{scoring} is from highest to lowest:  21 (Mia), 66, 55, 44, 33, 22, 11, 65, 64, 63, 62, 61, 54, 53, 52, 51, 43, 42, 41, 32, 31.
 If a player announces mia the next player either believes him, give up (without looking at the dices) and looses one life. Or he may look at the dice. If it was actually mia then he looses two lifes if it was not, the previous player looses a life. (For further information see \cite{mia:2016}.)
 
 \section{Implementation of the Game}
@@ -187,8 +185,8 @@ The predictor was able to learn nearly all strategies good.
 The following convergences consider the convergence of the python predictor not the ingame AI convergence.
 
 For the statistical approach convergence takes place around 4000 samples if we allow one percent of deviation in both directions (see \cref{fig:conv_stat}). 
-In \cref{fig:conv_prim} the convergence can be seen more easily. It is about 4000 samples. Afterwards there is only little variation of the accuracy. 
-For the SVM approaches can be seen that variant 1 and variant 3 converge to the same value of accuracy (0.97). Convergence for both variants is about 2000 samples. Variant 2 of the SVM approach has a lower lever of accuracy meaning that this one is harder to predict correctly than the others (under the given data). The convergence of variant 2 is at around 3000 samples. Variant 4 has the highest rate of accuracy with 98 percent and converges about 2500 samples (compare \cref{fig:conv_svmall}).
+In \cref{fig:conv_prim} the convergence can be seen more easily. It is again about 4000 samples. Afterwards there is only little variation of the accuracy. 
+For the SVM approaches can be seen that variant 1 and variant 3 converge to the same value of accuracy (0.97). Convergence for both variants is about 2000 samples. Variant 2 of the SVM approach has a lower level of accuracy meaning that this one is harder to predict correctly than the others (under the given data). The convergence of variant 2 is at around 3000 samples. Variant 4 has the highest rate of accuracy with 98 percent and converges about 2500 samples (compare \cref{fig:conv_svmall}).
 
 Comparing the convergence of the ingame AI (\cref{fig:conv_ingameSVM1}) and the python predictor (\cref{fig:svm1}) we can say that both converge near to 1500 samples. 
 The strategy of a lier has been detected by both ingame and python predictor. 
@@ -320,8 +318,8 @@ when submitting your paper for review.
 \bibliographystyle{acl2016}
 \appendix
 
-\section{Supplemental Material}
-\label{sec:supplemental}
+%\section{Supplemental Material}
+%\label{sec:supplemental}
 %ACL 2016 also encourages the submission of supplementary material
 %to report preprocessing decisions, model parameters, and other details
 %necessary for the replication of the experiments reported in the 
