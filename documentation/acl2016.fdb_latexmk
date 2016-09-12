@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex acl2016"] 1473509594 "acl2016.aux" "acl2016.bbl" "acl2016" 1473509980
+["bibtex acl2016"] 1473665689 "acl2016.aux" "acl2016.bbl" "acl2016" 1473665713
   "./acl2016.bst" 1453023051 25099 9e361dd593cf5bde4bcdca583d3b8ad3 ""
-  "acl2016.aux" 1473509949 6348 02caea587a60baa35d66acf523ac836e ""
+  "acl2016.aux" 1473665689 6581 eb31377c2c3bde622c3eef693d837ac0 ""
   "acl2016.bcf" 0 -1 0 ""
   "acl2016.bib" 1473062946 1557 4f4aa2951df6ae647dc39410f1cb0058 ""
   (generated)
-  "acl2016.blg"
   "acl2016.bbl"
-["pdflatex"] 1473509949 "acl2016.tex" "acl2016.pdf" "acl2016" 1473509980
+  "acl2016.blg"
+["pdflatex"] 1473665689 "acl2016.tex" "acl2016.pdf" "acl2016" 1473665713
   "../testdata/conv_ingameSVM1.png" 1473161512 8818 3376f4c6beb699571abfd6cf70bfce41 ""
   "../testdata/conv_prim.png" 1473075218 9912 8e871a5a746093525e77866403e7ee6f ""
   "../testdata/conv_stat.png" 1473075203 12497 6c67cdf3aa7a4b2ddc73aa8a32fcf9da ""
@@ -84,6 +84,7 @@
   "/usr/share/texmf-dist/tex/latex/oberdiek/grfext.sty" 1471317724 7075 2fe3d848bba95f139de11ded085e74aa ""
   "/usr/share/texmf-dist/tex/latex/oberdiek/kvoptions.sty" 1471317724 22417 1d9df1eb66848aa31b18a593099cf45c ""
   "/usr/share/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty" 1471317724 9581 023642318cef9f4677efe364de1e2a27 ""
+  "/usr/share/texmf-dist/tex/latex/placeins/placeins.sty" 1470205103 4087 636308456f60d2b31cbf97867db5708d ""
   "/usr/share/texmf-dist/tex/latex/psnfss/omsptm.fd" 1471317724 576 95c2c0baea9c719a4be29a3d4122498b ""
   "/usr/share/texmf-dist/tex/latex/psnfss/ot1pcr.fd" 1471317724 985 1ed784d7bfe47179f3550d2303b073f8 ""
   "/usr/share/texmf-dist/tex/latex/psnfss/ot1ptm.fd" 1471317724 961 15056f4a61917ceed3a44e4ac11fcc52 ""
@@ -92,13 +93,13 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1471317729 31669 df537245012f3e5f05bdc55644b7a3df ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1471360258 1758194 34f123b8fa28cc66e70d9b095a3909d5 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1471360197 7252863 eb58941656c71b2774ca7030e685729c ""
-  "acl2016.aux" 1473509949 6348 02caea587a60baa35d66acf523ac836e ""
-  "acl2016.bbl" 1473509594 449 6c9de66e2cff54ed1fba114b6b10b924 "bibtex acl2016"
-  "acl2016.out" 1473509949 853 9fa1b1ccfff1cc50014dcb9b4dc346f1 ""
+  "acl2016.aux" 1473665689 6581 eb31377c2c3bde622c3eef693d837ac0 ""
+  "acl2016.bbl" 1473665689 449 6c9de66e2cff54ed1fba114b6b10b924 "bibtex acl2016"
+  "acl2016.out" 1473665689 910 53620539777520a73707a4d53d24e70a ""
   "acl2016.sty" 1455087434 23474 f473cd17b4a23709984055f33545f9ef ""
-  "acl2016.tex" 1473509948 19695 37efec75b9bd984cc47d3f23321931d0 ""
+  "acl2016.tex" 1473665688 20018 998197a305c1ee3ff541ba82bd9c466b ""
   (generated)
-  "acl2016.aux"
-  "acl2016.out"
-  "acl2016.log"
   "acl2016.pdf"
+  "acl2016.log"
+  "acl2016.out"
+  "acl2016.aux"

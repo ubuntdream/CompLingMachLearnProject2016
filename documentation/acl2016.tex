@@ -24,6 +24,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{cleveref}
+\usepackage{placeins}
 \aclfinalcopy % Uncomment this line for the final submission
 %\def\aclpaperid{***} %  Enter the acl Paper ID here
 
@@ -71,10 +72,10 @@ The next player (who still has not seen the actual values) can now believe the p
 A player looses a life if he called the previous one a liar and looked on the values to find out that they are what the previous player has announced or even higher. Otherwise the previous player looses a life. 
 The higher value of the roll is multiplied by ten and then added to the other die (a 4 and a 2 is 42). 
 The \textbf{scoring} is from highest to lowest:  21 (Mia), 66, 55, 44, 33, 22, 11, 65, 64, 63, 62, 61, 54, 53, 52, 51, 43, 42, 41, 32, 31.
-If a player announces mia the next player either believes him, give up (without looking at the dices) and looses one life. Or he may look at the dice. If it was actually mia then he looses two lifes if it was not, the previous player looses a life. (For further information see \cite{mia:2016}.)
+If a player announces mia the next player either believes him, give up (without looking at the dices) and looses one life. Or he may look at the dice. If it was actually mia then he looses two lives if it was not, the previous player looses a life. (For further information see \cite{mia:2016}.)
 
 \section{Implementation of the Game}
-For the implementation we use C++ and Qt to build the GUI-Application. As IDE we used Qt-Creator. To implement an artificial intelligence according to the support vector machine learner we used the OpenCV library.
+For the implementation we use C++ and Qt to build the GUI-Application, as IDE we used Qt-Creator. To implement an artificial intelligence according to the support vector machine learner we used the OpenCV library.
 The ingame AI is used to distinguish between lies and the truth of announced values.
 For the prediction we used the last announced value, the actual value and an indicator to show the start of a new game. 
 To train the SVM we additionally used an indicator if the actual (value that previous player announced) value was a lie.\\
@@ -97,9 +98,9 @@ For each turn we reported:
 Since the actual rolled value is mostly hidden from the players. We decided to learn the predictor the players strategies only based on: new game, last announced value and new announced value (this seems most realistic).
 We then create liar labels for the datasets due to comparison of the new announced value and the actual rolled value for training purposes.
 Each dataset is split up to training data and test data. So we train the predictor for the different approaches by using cross validation (determination of parameter C) on the training data and measure the performance (generalization) on the test data. The test set is 30 percent of the data set, the others are training data.
-In the end we will compare the results of the implemented AIs detecting lies (take the \textit{look at} label and the predictions of our predictor).
+In the end we will compare the results of the implemented AIs detecting lies by taking the indicator that the ingame AI will look at the values (saying the former player was a lier) and the predictions of our predictor (see \cref{secDiscussionOfResults}).
 
-We examined three different types of artificial intelligence approaches. First the statistical approach where the AI acts very straight forward. Then an AI with a certain degree of randomness in its call and look behavior. Last we implemented a learning AI with different calling behaviors to examine if the predictor is able to learn the strategy of a learning player. Last we wanted to know how many samples it takes until there is convergence of accuracy in the predictor. 
+We examined three different types of artificial intelligence approaches. First the statistical approach where the AI acts very straight forward. Then an AI with a certain degree of randomness in its call and look behavior. At the end we implemented a learning AI with different calling behaviors to examine if the predictor is able to learn the strategy of a learning player. Last we wanted to know how many samples it takes until there is convergence of accuracy in the predictor. 
 
 \subsection{Statistic Approach}
 \label{ssec:statistic}
@@ -130,7 +131,7 @@ This AI always says the truth if possible, otherwise it take a random value grea
 
 \subsection{Approach with certain degree of randomness (Primitive Random)}
 \label{ssec:primitive}
-This AI will call with a certain probability a value that is greater than the actual rolled value if the value is lower than the one of the previous player. Also the AI will look on the dices with a probability that arises with decreasing beat probability (see \cref{tbl:stat1}) of a announced value (a 31 will not be looked at with probability near 100 percent, 21 is looked at with 100 percent). This AI always says the truth if it is possible (meaning the rolled value is greater than the last announced value).
+This AI will call with a certain probability a value that is greater than the actual rolled value if the value is lower than the one of the previous player. Also the AI will look on the dices with a probability that arises with decreasing beat probability (see \cref{tbl:stat1}) of a announced value (a 31 will not be looked at with probability near 100 percent, 21 is looked at with 100 percent). This AI always says the truth if it is possible (meaning the rolled value is greater than the last announced value). Otherwise this AI will call a random value.
 
 \subsection{A SVM learning approach}
 The next step was to create a new type of artificial intelligence that changes its behavior during the history/time of the game.
@@ -150,13 +151,14 @@ This AI always calls a possible random value that is independent from the actual
 
 \subsubsection{SVM variant 4}
 \label{sssec:svm4}
-This AI always announces a lower or equal value than the actual rolled value if it is possible. Otherwise it uses a random value greater than the last announced one. 
+This AI always announces a lower or equal value than the actual rolled value if it is possible. Otherwise it uses a random value greater than the last announced one. This AI is willing to lie whenever it is possible. 
 
 \section{The Predictor}
 To predict the different strategical approaches we used a support vector machine (SVM) predictor with radial basis functions. A linear predictor would not have been sufficient due to the complexity of data, but with the SVM-predictor adequate results could be expected.
 By using SVM we are interested in separating two (or more) classes by a separating hyperplane with maximal margin. The margin is defined with respect to the training points as the minimal distance between the hyperplane and a training point.(See \cite[187--227]{Schoellkopf:02}.)
 
 \section{Discussion of Results}
+\label{secDiscussionOfResults}
 An overview of the maintained results can be seen in \cref{tab:results}.
 In all but one case the learned predictor was able to predict the lier labels better than the AIs. Moreover we can conclude that the predictor was able to learn the strategy of the different approaches quite well. 
 
@@ -179,7 +181,7 @@ In all but one case the learned predictor was able to predict the lier labels be
 
 The artificial intelligence based on the statistic approach (see \cref{ssec:statistic}) has the worst results of all our experiments. Our predictor was able to achieve a result of 86\% and more or less learn the AIs strategy.
 The approach with a certain degree of randomness (see \cref{ssec:primitive}) was able to detect around 60\% (the predictor again beat the ingame AI and was able to learn their strategy).
-The learning of the svm helps to improve the ingame predictions and learn the strategy of the other players (the ingame results are quite as good as the our predictor implemented in python).
+The learning of the SVM helps to improve the ingame predictions and learn the strategy of the other players (the ingame results are quite as good as the our predictor implemented in python).
 Summing up we can say that the ingame AIs results are the better the less randomness exist in the calling behavior of the other players.
 The predictor was able to learn nearly all strategies good.
 The following convergences consider the convergence of the python predictor not the ingame AI convergence.
@@ -231,12 +233,17 @@ In \cref{fig:svm3} you can see clearly that the variance of the liars classifica
 
 In \cref{fig:svm4} where the calling behavior is to say a smaller value (see \cref{sssec:svm4}) if possible the variance of the lier calling is a bit smaller than in \cref{sssec:svm3}.
 
+
+\FloatBarrier
+\section{Supplemental Material}
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=.45\textwidth]{../testdata/convergence_all.png}
 	\caption{Comparison of predictor based on all four SVM variants data sets.}
 	\label{fig:conv_svmall}
 \end{figure}
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=.45\textwidth]{../testdata/conv_prim.png}
@@ -304,12 +311,12 @@ In \cref{fig:svm4} where the calling behavior is to say a smaller value (see \cr
 
 
 
-
-\section*{Acknowledgments}
-
-The acknowledgments should go immediately before the references.  Do
-not number the acknowledgments section. Do not include this section
-when submitting your paper for review.
+%
+%\section*{Acknowledgments}
+%
+%The acknowledgments should go immediately before the references.  Do
+%not number the acknowledgments section. Do not include this section
+%when submitting your paper for review.
 
 % include your own bib file like this:
 %\bibliographystyle{acl}
