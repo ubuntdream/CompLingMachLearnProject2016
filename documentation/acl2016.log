@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2016.8.16)  12 SEP 2016 09:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2016.8.16)  17 SEP 2016 11:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -276,121 +276,106 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
 
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 90.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 99.
 (/usr/share/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 90.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 99.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 112.
+(Font)              <9> on input line 126.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 112.
+(Font)              <5> on input line 126.
 [2pdfTeX warning (ext4): destination with the same identifier (name{table.1}) h
 as been already used, duplicate ignored
 
 \@EveryShipoutACL@Output ...g@Shipout \box \@cclv 
                                                   
-l.147 
+l.144 
       ]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 170.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 198.
-<../testdata/svm1.png, id=92, 154.5775pt x 77.28876pt>
-File: ../testdata/svm1.png Graphic file (type png)
-<use ../testdata/svm1.png>
-Package pdftex.def Info: ../testdata/svm1.png used on input line 203.
-(pdftex.def)             Requested size: 204.85844pt x 102.43776pt.
-
-Underfull \vbox (badness 3679) has occurred while \output is active []
-
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 185.
 [3pdfTeX warning (ext4): destination with the same identifier (name{table.2}) h
 as been already used, duplicate ignored
 
 \@EveryShipoutACL@Output ...g@Shipout \box \@cclv 
                                                   
 l.207 
-      ] <../testdata/svm2.png, id=109, 154.5775pt x 77.28876pt>
+      ]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 213.
+<../testdata/svm1.png, id=104, 154.5775pt x 77.28876pt>
+File: ../testdata/svm1.png Graphic file (type png)
+<use ../testdata/svm1.png>
+Package pdftex.def Info: ../testdata/svm1.png used on input line 218.
+(pdftex.def)             Requested size: 204.85844pt x 102.43776pt.
+<../testdata/svm2.png, id=107, 154.5775pt x 77.28876pt>
 File: ../testdata/svm2.png Graphic file (type png)
 <use ../testdata/svm2.png>
-Package pdftex.def Info: ../testdata/svm2.png used on input line 212.
+Package pdftex.def Info: ../testdata/svm2.png used on input line 227.
 (pdftex.def)             Requested size: 204.85844pt x 102.43776pt.
-<../testdata/svm3.png, id=112, 154.5775pt x 77.28876pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+<../testdata/svm3.png, id=110, 154.5775pt x 77.28876pt>
 File: ../testdata/svm3.png Graphic file (type png)
 <use ../testdata/svm3.png>
-Package pdftex.def Info: ../testdata/svm3.png used on input line 221.
+Package pdftex.def Info: ../testdata/svm3.png used on input line 236.
 (pdftex.def)             Requested size: 204.85844pt x 102.43776pt.
-<../testdata/svm4.png, id=115, 154.5775pt x 77.28876pt>
+<../testdata/svm4.png, id=113, 154.5775pt x 77.28876pt>
 File: ../testdata/svm4.png Graphic file (type png)
 <use ../testdata/svm4.png>
-Package pdftex.def Info: ../testdata/svm4.png used on input line 229.
+Package pdftex.def Info: ../testdata/svm4.png used on input line 244.
 (pdftex.def)             Requested size: 204.85844pt x 102.43776pt.
-
-Underfull \vbox (badness 4792) has occurred while \output is active []
-
-<../testdata/convergence_all.png, id=119, 459.21562pt x 351.56343pt>
+<../testdata/convergence_all.png, id=117, 459.21562pt x 351.56343pt>
 File: ../testdata/convergence_all.png Graphic file (type png)
 <use ../testdata/convergence_all.png>
-Package pdftex.def Info: ../testdata/convergence_all.png used on input line 242
+Package pdftex.def Info: ../testdata/convergence_all.png used on input line 257
 .
 (pdftex.def)             Requested size: 204.85844pt x 156.83415pt.
-<../testdata/conv_prim.png, id=120, 459.21562pt x 351.56343pt>
-File: ../testdata/conv_prim.png Graphic file (type png)
-<use ../testdata/conv_prim.png>
-Package pdftex.def Info: ../testdata/conv_prim.png used on input line 249.
-(pdftex.def)             Requested size: 204.85844pt x 156.83415pt.
-<../testdata/conv_stat.png, id=121, 459.21562pt x 351.56343pt>
-File: ../testdata/conv_stat.png Graphic file (type png)
-<use ../testdata/conv_stat.png>
-Package pdftex.def Info: ../testdata/conv_stat.png used on input line 255.
-(pdftex.def)             Requested size: 204.85844pt x 156.83415pt.
 
-Underfull \vbox (badness 1490) has occurred while \output is active []
+Underfull \vbox (badness 4792) has occurred while \output is active []
 
 [4pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) 
 has been already used, duplicate ignored
 
 \@EveryShipoutACL@Output ...g@Shipout \box \@cclv 
                                                   
-l.259 
+l.261 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.
 2}) has been already used, duplicate ignored
 
 \@EveryShipoutACL@Output ...g@Shipout \box \@cclv 
                                                   
-l.259 
+l.261 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.
 3}) has been already used, duplicate ignored
 
 \@EveryShipoutACL@Output ...g@Shipout \box \@cclv 
                                                   
-l.259 
+l.261 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.
 4}) has been already used, duplicate ignored
 
 \@EveryShipoutACL@Output ...g@Shipout \box \@cclv 
                                                   
-l.259 
-      pdfTeX warning (ext4): destination with the same identifier (name{figure.
-5}) has been already used, duplicate ignored
-
-\@EveryShipoutACL@Output ...g@Shipout \box \@cclv 
-                                                  
-l.259 
-      pdfTeX warning (ext4): destination with the same identifier (name{figure.
-6}) has been already used, duplicate ignored
-
-\@EveryShipoutACL@Output ...g@Shipout \box \@cclv 
-                                                  
-l.259 
+l.261 
        <../testdata/svm1.png (PNG copy)> <../testdata/svm2.png (PNG copy)> <../
-testdata/svm3.png (PNG copy)> <../testdata/svm4.png (PNG copy)> <../testdata/co
-nvergence_all.png (PNG copy)> <../testdata/conv_prim.png>] <../testdata/conv_in
-gameSVM1.png, id=129, 371.88937pt x 234.1247pt>
+testdata/svm3.png (PNG copy)> <../testdata/svm4.png (PNG copy)>] <../testdata/c
+onv_prim.png, id=130, 459.21562pt x 351.56343pt>
+File: ../testdata/conv_prim.png Graphic file (type png)
+<use ../testdata/conv_prim.png>
+Package pdftex.def Info: ../testdata/conv_prim.png used on input line 264.
+(pdftex.def)             Requested size: 204.85844pt x 156.83415pt.
+<../testdata/conv_stat.png, id=131, 459.21562pt x 351.56343pt>
+File: ../testdata/conv_stat.png Graphic file (type png)
+<use ../testdata/conv_stat.png>
+Package pdftex.def Info: ../testdata/conv_stat.png used on input line 270.
+(pdftex.def)             Requested size: 204.85844pt x 156.83415pt.
+<../testdata/conv_ingameSVM1.png, id=132, 371.88937pt x 234.1247pt>
 File: ../testdata/conv_ingameSVM1.png Graphic file (type png)
 <use ../testdata/conv_ingameSVM1.png>
-Package pdftex.def Info: ../testdata/conv_ingameSVM1.png used on input line 262
+Package pdftex.def Info: ../testdata/conv_ingameSVM1.png used on input line 277
 .
 (pdftex.def)             Requested size: 204.85844pt x 128.9726pt.
 (./acl2016.bbl
@@ -407,49 +392,60 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--14
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 355.
-[5pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) 
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 370.
+[5pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) 
 has been already used, duplicate ignored
 
 \@EveryShipoutACL@Output ...g@Shipout \box \@cclv 
                                                   
-l.355 \end{document}
+l.370 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier
+ (name{figure.6}) has been already used, duplicate ignored
+
+\@EveryShipoutACL@Output ...g@Shipout \box \@cclv 
+                                                  
+l.370 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier
+ (name{figure.7}) has been already used, duplicate ignored
+
+\@EveryShipoutACL@Output ...g@Shipout \box \@cclv 
+                                                  
+l.370 \end{document}
                     pdfTeX warning (ext4): destination with the same identifier
  (name{figure.8}) has been already used, duplicate ignored
 
 \@EveryShipoutACL@Output ...g@Shipout \box \@cclv 
                                                   
-l.355 \end{document}
-                    
-
- <../testdata/conv_stat.png> <../testdata/conv_ingameSVM1.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 355.
+l.370 \end{document}
+                     <../testdata/convergence_all.png (PNG copy)> <../testdata/
+conv_prim.png> <../testdata/conv_stat.png> <../testdata/conv_ingameSVM1.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 370.
 (./acl2016.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 355.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 355.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 370.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 370.
 Package rerunfilecheck Info: File `acl2016.out' has not changed.
-(rerunfilecheck)             Checksum: 53620539777520A73707A4D53D24E70A;910.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 355.
+(rerunfilecheck)             Checksum: 40224DD86E35FFEC0D9A24C589267098;911.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 370.
  )
 (\end occurred when \iffalse on line 331 was incomplete) 
 Here is how much of TeX's memory you used:
- 7022 strings out of 493013
- 114368 string characters out of 6139317
+ 7026 strings out of 493013
+ 114428 string characters out of 6139317
  222836 words of memory out of 5000000
- 10455 multiletter control sequences out of 15000+600000
- 28838 words of font info for 65 fonts, out of 8000000 for 9000
+ 10458 multiletter control sequences out of 15000+600000
+ 30522 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 29i,9n,28p,591b,337s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 29i,9n,28p,591b,317s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/
 fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/s
 hare/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts/t
 ype1/urw/times/utmr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmri8a.
 pfb>
-Output written on acl2016.pdf (5 pages, 144274 bytes).
+Output written on acl2016.pdf (5 pages, 146968 bytes).
 PDF statistics:
- 168 PDF objects out of 1000 (max. 8388607)
- 143 compressed objects within 2 object streams
+ 171 PDF objects out of 1000 (max. 8388607)
+ 146 compressed objects within 2 object streams
  34 named destinations out of 1000 (max. 500000)
  153 words of extra memory for PDF output out of 10000 (max. 10000000)
 
