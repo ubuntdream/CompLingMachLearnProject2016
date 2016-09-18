@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2016.8.16)  17 SEP 2016 11:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2016.8.16)  18 SEP 2016 09:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -300,34 +300,32 @@ as been already used, duplicate ignored
 
 \@EveryShipoutACL@Output ...g@Shipout \box \@cclv 
                                                   
-l.207 
-      ]
+l.204 F
+       or the statistical approach convergence takes place around 4000 sampl...
+]
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <10.95> on input line 213.
-<../testdata/svm1.png, id=104, 154.5775pt x 77.28876pt>
+<../testdata/svm1.png, id=103, 154.5775pt x 77.28876pt>
 File: ../testdata/svm1.png Graphic file (type png)
 <use ../testdata/svm1.png>
 Package pdftex.def Info: ../testdata/svm1.png used on input line 218.
 (pdftex.def)             Requested size: 204.85844pt x 102.43776pt.
-<../testdata/svm2.png, id=107, 154.5775pt x 77.28876pt>
+<../testdata/svm2.png, id=106, 154.5775pt x 77.28876pt>
 File: ../testdata/svm2.png Graphic file (type png)
 <use ../testdata/svm2.png>
 Package pdftex.def Info: ../testdata/svm2.png used on input line 227.
 (pdftex.def)             Requested size: 204.85844pt x 102.43776pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-<../testdata/svm3.png, id=110, 154.5775pt x 77.28876pt>
+<../testdata/svm3.png, id=109, 154.5775pt x 77.28876pt>
 File: ../testdata/svm3.png Graphic file (type png)
 <use ../testdata/svm3.png>
 Package pdftex.def Info: ../testdata/svm3.png used on input line 236.
 (pdftex.def)             Requested size: 204.85844pt x 102.43776pt.
-<../testdata/svm4.png, id=113, 154.5775pt x 77.28876pt>
+<../testdata/svm4.png, id=112, 154.5775pt x 77.28876pt>
 File: ../testdata/svm4.png Graphic file (type png)
 <use ../testdata/svm4.png>
 Package pdftex.def Info: ../testdata/svm4.png used on input line 244.
 (pdftex.def)             Requested size: 204.85844pt x 102.43776pt.
-<../testdata/convergence_all.png, id=117, 459.21562pt x 351.56343pt>
+<../testdata/convergence_all.png, id=116, 459.21562pt x 351.56343pt>
 File: ../testdata/convergence_all.png Graphic file (type png)
 <use ../testdata/convergence_all.png>
 Package pdftex.def Info: ../testdata/convergence_all.png used on input line 257
@@ -442,7 +440,7 @@ cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/s
 hare/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts/t
 ype1/urw/times/utmr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmri8a.
 pfb>
-Output written on acl2016.pdf (5 pages, 146968 bytes).
+Output written on acl2016.pdf (5 pages, 146970 bytes).
 PDF statistics:
  171 PDF objects out of 1000 (max. 8388607)
  146 compressed objects within 2 object streams

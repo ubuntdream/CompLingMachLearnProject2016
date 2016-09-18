@@ -153,19 +153,19 @@ Therefore, we used a SVM implementation with different behaviors by calling a va
 
 \subsubsection{SVM variant 1}
 \label{sssec:svm1}
-This variant of the AI says the truth or uses the next possible value greater than the last announced one.
+This variant of the AI will announce the true dice values or uses the next possible value greater than the last announced one.
 
 \subsubsection{SVM variant 2}
 \label{sssec:svm2}
-This AI variant always says the truth if it is possible or calls a random value greater than the last announced one. 
+This AI variant will announce the true dice values if it is possible, else it calls a random value greater than the last announced one. 
 
 \subsubsection{SVM variant 3}
 \label{sssec:svm3}
-This AI always calls a possible random value that is independent from the actual rolled dice value.
+This AI will always call a possible random value that is independent from the actual rolled dice value.
 
 \subsubsection{SVM variant 4}
 \label{sssec:svm4}
-This AI always announces a lower or equal value than the actual rolled value if it is possible. Otherwise it uses a random value greater than the last announced one. This AI is willing to lie whenever it is possible. 
+This AI will always announce a lower or equal value than the actual rolled value if it is possible. Otherwise it uses a random value greater than the last announced one. This AI is willing to lie whenever it is possible. 
 
 \section{The Classifier}
 \label{sec:predictor}
